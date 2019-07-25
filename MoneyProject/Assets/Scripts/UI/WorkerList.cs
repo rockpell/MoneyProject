@@ -5,9 +5,10 @@ using UnityEngine;
 public class WorkerList : MonoBehaviour
 {
     // Start is called before the first frame update
-    private Worker basicWorker;
-    private List<Worker> workers;
+    [SerializeField] private Worker basicWorker;
+    [SerializeField] private List<Worker> workers;
     [SerializeField] Station busan;
+    [SerializeField] float StationWorkerRange;
     void Start()
     {
         
@@ -19,16 +20,17 @@ public class WorkerList : MonoBehaviour
         
     }
 
-    void employWorker()
+    public void employWorker()
     {
         int busanWorker = busan.getWorkerCount();
-        workers.Add(Instantiate(basicWorker, busan.getWorkerSpace() + (busanWorker * new Vector3(0.3f,0,0)), Quaternion.identity));
+        workers.Add(Instantiate(basicWorker, busan.getWorkerSpace() + (busanWorker * new Vector3(StationWorkerRange,0,0)), Quaternion.identity));
+        busan.increaseWorker();
     }
-    void fireWorker(Worker worker)
+    public void fireWorker(Worker worker)
     {
         workers.Remove(worker);
     }
-    void updateWorkerList()
+    public void updateWorkerList()
     {
         
     }
