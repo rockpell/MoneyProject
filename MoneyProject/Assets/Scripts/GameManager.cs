@@ -28,7 +28,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        resource = new Resource[3];
+        resource[0] = new Resource(RTYPE.FABRIC);
+        resource[1] = new Resource(RTYPE.GRAIN);
+        resource[2] = new Resource(RTYPE.SEAFOOD);
     }
 
     // Update is called once per frame

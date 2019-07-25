@@ -2,20 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Resource : MonoBehaviour
+public class Resource
 {
     public RTYPE rType;
     public int price;
     public int count;
 
-    void Start()
+    public Resource(RTYPE rType)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        this.rType = rType;
     }
 }
