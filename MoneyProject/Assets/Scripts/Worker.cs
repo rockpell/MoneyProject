@@ -8,6 +8,12 @@ public class Worker : MonoBehaviour
     [SerializeField] private Sprite ship;
     [SerializeField] private Sprite wagon;
 
+    private Station nowStation; // 초기값 부산으로 설정 필요
+    private List<Station> leftPath;
+    private Resource hasResource;
+
+    private int arriveLeftTime; // 남은 턴수
+
     void Start()
     {
         
@@ -25,5 +31,42 @@ public class Worker : MonoBehaviour
             this.gameObject.GetComponent<SpriteRenderer>().sprite = wagon;
         else if (status == STATUS.SHIP)
             this.gameObject.GetComponent<SpriteRenderer>().sprite = ship;
+    }
+
+    public void setPath(List<Station> stations)
+    {
+        if(leftPath[0] != stations[0]) // 새로운 경로일 경우
+        {
+            arriveLeftTime = nowStation.calNeighborDistance(stations[0]);
+        }
+        leftPath = stations;
+    }
+
+    public void initLeftPath()
+    {
+        leftPath = null;
+    }
+
+    public void progressTurn() // 턴 진행시 호출
+    {
+        --arriveLeftTime;
+
+        if(arriveLeftTime < 0)
+        {
+            moveStation();
+        }
+    }
+
+    public void selectWorker() // 마우스로 클릭시 이 함수 호출, 연결된 경로 하이라이트 효과도 여기서 호출
+    {
+        InputManager.getInstance().selectWorker(this);
+    }
+
+    private void moveStation()
+    {
+        changeSprite();
+
+        nowStation = leftPath[0];
+        leftPath.RemoveAt(0);
     }
 }

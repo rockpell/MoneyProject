@@ -5,6 +5,7 @@ using UnityEngine;
 public class Station : MonoBehaviour
 {
     [SerializeField] private Station[] neighborStations;
+    [SerializeField] int[] neighborDistance;
     [SerializeField] private GameObject workerSpace;
 
     private int price;
@@ -39,4 +40,17 @@ public class Station : MonoBehaviour
 
     public int getWorkerCount() { return workerCount; }
     public Vector3 getWorkerSpace() { return workerSpace.transform.position; }
+
+    public int calNeighborDistance(Station station)
+    {
+        int _result = -1;
+
+        for(int i = 0; i < neighborStations.Length; i++)
+        {
+            if (neighborStations[i] == station)
+                _result = i;
+        }
+
+        return _result;
+    }
 }

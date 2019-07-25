@@ -5,6 +5,7 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     private List<Station> nowPath;
+    private Worker nowWorker;
 
     private static InputManager instance;
 
@@ -40,5 +41,10 @@ public class InputManager : MonoBehaviour
     public void initNowPath()
     {
         nowPath.Clear();
+    }
+
+    public void selectWorker(Worker worker)
+    {
+        nowWorker = worker;
     }
 }
