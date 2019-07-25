@@ -34,7 +34,7 @@ public class Station : MonoBehaviour
 
     public void addNowPath() // 클릭시 InputManager의 현재 경로에 this 추가하는 함수
     {
-
+        InputManager.getInstance().addNowPath(this);
     }
 
     public int getWorkerCount() { return workerCount; }
