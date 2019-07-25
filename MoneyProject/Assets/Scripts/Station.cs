@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Station : MonoBehaviour
 {
-    [SerializeField] Station[] neighborStations;
-    [SerializeField] GameObject workerSpace;
+    [SerializeField] private Station[] neighborStations;
+    [SerializeField] private GameObject workerSpace;
 
     private int price;
     private int workerCount;
