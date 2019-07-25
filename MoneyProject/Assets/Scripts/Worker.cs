@@ -9,14 +9,14 @@ public class Worker : MonoBehaviour
     [SerializeField] private Sprite wagon;
 
     private Station nowStation; // 초기값 부산으로 설정 필요
-    private List<Station> leftPath;
+    [SerializeField] private List<Station> leftPath;
     private Resource hasResource;
 
     private int arriveLeftTime; // 남은 턴수
 
     void Start()
     {
-        
+        nowStation = GameObject.Find("Busan").GetComponent<Station>();
     }
 
     void Update()
@@ -34,10 +34,11 @@ public class Worker : MonoBehaviour
 
     public void setPath(List<Station> stations)
     {
-        if(leftPath[0] != stations[0]) // 새로운 경로일 경우
+        if((leftPath.Count == 0) || (leftPath[0] != stations[0])) // 새로운 경로일 경우
         {
             arriveLeftTime = nowStation.calNeighborDistance(stations[0]);
         }
+        
         leftPath = stations;
     }
 

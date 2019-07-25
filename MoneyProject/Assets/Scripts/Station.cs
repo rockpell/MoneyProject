@@ -7,6 +7,7 @@ public class Station : MonoBehaviour
     [SerializeField] private Station[] neighborStations;
     [SerializeField] int[] neighborDistance;
     [SerializeField] private GameObject workerSpace;
+    private Resource hasResource;
 
     private int price;
     private int workerCount;
