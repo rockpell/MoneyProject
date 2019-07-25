@@ -2,5 +2,5 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum RTYPE { FABRIC, SEAFOOD, GRAIN }
-enum STATUS { WAGON, SHIP }
+public enum RTYPE { FABRIC, SEAFOOD, GRAIN }
+public enum STATUS { WAGON, SHIP }

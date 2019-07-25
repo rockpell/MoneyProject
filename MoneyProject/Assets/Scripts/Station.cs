@@ -5,13 +5,22 @@ using UnityEngine;
 public class Station : MonoBehaviour
 {
     [SerializeField] Station[] neighborStations;
-    private int workerCount;
     [SerializeField] GameObject workerSpace;
+
+    private int price;
+    private int workerCount;
+    private bool isSeaprot;
 
     public void increaseWorker()
     {
-        workerCount++;
+        ++workerCount;
     }
+
+    public void decreaseWorker()
+    {
+        --workerCount;
+    }
+
     void Start()
     {
         
@@ -22,6 +31,12 @@ public class Station : MonoBehaviour
     {
         
     }
+
+    public void addNowPath() // 클릭시 InputManager의 현재 경로에 this 추가하는 함수
+    {
+
+    }
+
     public int getWorkerCount() { return workerCount; }
     public Vector3 getWorkerSpace() { return workerSpace.transform.position; }
 }
