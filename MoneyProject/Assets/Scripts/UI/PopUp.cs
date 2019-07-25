@@ -11,7 +11,7 @@ public class PopUp : MonoBehaviour
         
     }
 
-    public void ClickUI()
+    public void clickUI()
     {
         if (PopUpPanel.activeInHierarchy)
             PopUpPanel.SetActive(false);
