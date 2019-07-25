@@ -26,7 +26,6 @@ public class Worker : MonoBehaviour
 
     private void changeSprite()
     {
-        Sprite changeSprite;
         if (status == STATUS.WAGON)
             this.gameObject.GetComponent<SpriteRenderer>().sprite = wagon;
         else if (status == STATUS.SHIP)
@@ -69,4 +68,7 @@ public class Worker : MonoBehaviour
         nowStation = leftPath[0];
         leftPath.RemoveAt(0);
     }
+    public STATUS getSTATUS() { return status; }
+    public Sprite getWagonImage() { return wagon; }
+    public Sprite getShipImage() { return ship; }
 }
