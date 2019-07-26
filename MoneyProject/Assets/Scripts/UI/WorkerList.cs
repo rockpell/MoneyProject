@@ -26,7 +26,6 @@ public class WorkerList : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
     private void addWorkerListPopUp(Worker worker)
     {
@@ -41,7 +40,7 @@ public class WorkerList : MonoBehaviour
     {
         int busanWorker = busan.getWorkerCount();
         workers.Add(Instantiate(basicWorker, busan.getWorkerSpace() + (busanWorker * new Vector3(busan.getWorkerSpaceRange(),0,0)), Quaternion.identity));
-        busan.increaseWorker();
+        busan.addWorker(workers[workers.Count - 1]);
         addWorkerListPopUp(workers[workers.Count - 1]);
         workers[workers.Count - 1].initNowStation();
     }
@@ -58,11 +57,13 @@ public class WorkerList : MonoBehaviour
         if(selectWorker != null)
         {
             index = workers.IndexOf(selectWorker);
+
             GameObject.Destroy(selectWorker.gameObject);
+            selectWorker.getNowStation().deleteWorker(selectWorker);
             workers.Remove(selectWorker);
+
             GameObject.Destroy(uiWorkers[index]);
             uiWorkers.Remove(uiWorkers[index]);
-            busan.decreaseWorker();
             UpdateWorkerPosition();
         }
     }

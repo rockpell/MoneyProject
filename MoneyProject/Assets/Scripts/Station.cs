@@ -8,25 +8,25 @@ public class Station : MonoBehaviour
     [SerializeField] int[] neighborDistance;
     [SerializeField] private GameObject workerSpace;
     private Resource hasResource;
+    private List<Worker> workers;
 
     private int price;
-    private int workerCount;
     private bool isSeaprot;
     [SerializeField] private float workerSpaceRange;
 
-    public void increaseWorker()
+    public void addWorker(Worker worker)
     {
-        ++workerCount;
+        workers.Add(worker);
     }
 
-    public void decreaseWorker()
+    public void deleteWorker(Worker worker)
     {
-        --workerCount;
+        workers.Remove(worker);
     }
 
     void Start()
     {
-        
+        workers = new List<Worker>();
     }
 
     // Update is called once per frame
@@ -40,7 +40,7 @@ public class Station : MonoBehaviour
         InputManager.getInstance().addNowPath(this);
     }
 
-    public int getWorkerCount() { return workerCount; }
+    public int getWorkerCount() { return workers.Count; }
     public Vector3 getWorkerSpace() { return workerSpace.transform.position; }
     public float getWorkerSpaceRange() { return workerSpaceRange; }
 

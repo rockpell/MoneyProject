@@ -53,7 +53,8 @@ public class Worker : MonoBehaviour
 
         if(arriveLeftTime < 0)
         {
-            moveStation();
+            if (leftPath.Count != 0)
+                moveStation();
         }
     }
 
@@ -65,8 +66,10 @@ public class Worker : MonoBehaviour
     private void moveStation()
     {
         changeSprite();
+        nowStation.deleteWorker(this);
         nowStation = leftPath[0];
         leftPath.RemoveAt(0);
+        nowStation.addWorker(this);
         moveWorker();
     }
     private void moveWorker()
