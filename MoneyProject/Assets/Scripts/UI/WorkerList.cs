@@ -39,7 +39,7 @@ public class WorkerList : MonoBehaviour
     }
     public void employWorker()
     {
-        if(GameManager.getInstance().Money >= employmentCost)
+        if((GameManager.getInstance().Money >= employmentCost)&&(workers.Count < 5))
         {
             GameManager.getInstance().Money -= employmentCost;
             int busanWorker = busan.getWorkerCount();
