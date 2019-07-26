@@ -5192,7 +5192,8 @@ MonoBehaviour:
   neighborDistance: 0000000000000000000000000000000000000000
   workerSpace: {fileID: 1140989493}
   workers: []
-  hasResourceType: 0
+  price: 0
+  priceChangeValue: 0
   workerSpaceRange: 0.5
 --- !u!212 &328965705
 SpriteRenderer:
@@ -6231,7 +6232,8 @@ MonoBehaviour:
   neighborDistance: 00000000000000000000000000000000
   workerSpace: {fileID: 655323237}
   workers: []
-  hasResourceType: 0
+  price: 0
+  priceChangeValue: 0
   workerSpaceRange: 0.5
 --- !u!212 &391153490
 SpriteRenderer:
@@ -8614,7 +8616,8 @@ MonoBehaviour:
   neighborDistance: 000000000000000000000000
   workerSpace: {fileID: 159324579}
   workers: []
-  hasResourceType: 0
+  price: 0
+  priceChangeValue: 0
   workerSpaceRange: 0.5
 --- !u!212 &516871602
 SpriteRenderer:
@@ -9959,7 +9962,8 @@ MonoBehaviour:
   neighborDistance: 000000000000000000000000
   workerSpace: {fileID: 1432951378}
   workers: []
-  hasResourceType: 0
+  price: 0
+  priceChangeValue: 0
   workerSpaceRange: 0.5
 --- !u!212 &575994009
 SpriteRenderer:
@@ -14432,7 +14436,8 @@ MonoBehaviour:
   neighborDistance: 00000000000000000000000000000000
   workerSpace: {fileID: 1448329159}
   workers: []
-  hasResourceType: 0
+  price: 0
+  priceChangeValue: 0
   workerSpaceRange: 0.5
 --- !u!212 &797217167
 SpriteRenderer:
@@ -15846,6 +15851,8 @@ MonoBehaviour:
   selectMenu: {fileID: 317759207123549455}
   messageUI: {fileID: 0}
   nowPath: []
+  buyButton: {fileID: 1387343981}
+  sellButton: {fileID: 1032283242}
   zoomScale: 0.5
   dragScale: 0.05
 --- !u!4 &862887013
@@ -16038,7 +16045,8 @@ MonoBehaviour:
   neighborDistance: 0000000000000000
   workerSpace: {fileID: 1945307899}
   workers: []
-  hasResourceType: 0
+  price: 0
+  priceChangeValue: 0
   workerSpaceRange: 0.5
 --- !u!212 &881376926
 SpriteRenderer:
@@ -17624,7 +17632,8 @@ MonoBehaviour:
   neighborDistance: 000000000000000000000000000000000000000000000000
   workerSpace: {fileID: 326046761}
   workers: []
-  hasResourceType: 0
+  price: 0
+  priceChangeValue: 0
   workerSpaceRange: 0.5
 --- !u!212 &955379204
 SpriteRenderer:
@@ -19234,6 +19243,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1029613769}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1032283242 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 85399408966600632, guid: 44fe52734b2eb034c935a30d173e3942,
+    type: 3}
+  m_PrefabInstance: {fileID: 317759207123549454}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1033343628
 GameObject:
   m_ObjectHideFlags: 0
@@ -20566,7 +20587,8 @@ MonoBehaviour:
   neighborDistance: 00000000000000000000000000000000
   workerSpace: {fileID: 1480522673}
   workers: []
-  hasResourceType: 0
+  price: 0
+  priceChangeValue: 0
   workerSpaceRange: 0.5
 --- !u!212 &1099181771
 SpriteRenderer:
@@ -23654,7 +23676,8 @@ MonoBehaviour:
   neighborDistance: 0000000000000000
   workerSpace: {fileID: 1912898607}
   workers: []
-  hasResourceType: 0
+  price: 0
+  priceChangeValue: 0
   workerSpaceRange: 0.5
 --- !u!212 &1221190024
 SpriteRenderer:
@@ -27674,6 +27697,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1378857860}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1387343981 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9215398115462750374, guid: 44fe52734b2eb034c935a30d173e3942,
+    type: 3}
+  m_PrefabInstance: {fileID: 317759207123549454}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1388321554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37251,7 +37286,8 @@ MonoBehaviour:
   neighborDistance: 0000000000000000
   workerSpace: {fileID: 1757955720}
   workers: []
-  hasResourceType: 0
+  price: 0
+  priceChangeValue: 0
   workerSpaceRange: 0.5
 --- !u!212 &1822272042
 SpriteRenderer:
@@ -42615,10 +42651,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 68551026, guid: 44fe52734b2eb034c935a30d173e3942, type: 3}
-      propertyPath: busan
-      value: 
-      objectReference: {fileID: 391153489}
     - target: {fileID: 317759206204467511, guid: 44fe52734b2eb034c935a30d173e3942,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -42724,6 +42756,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 68551026, guid: 44fe52734b2eb034c935a30d173e3942, type: 3}
+      propertyPath: busan
+      value: 
+      objectReference: {fileID: 391153489}
     - target: {fileID: 317759207742491262, guid: 44fe52734b2eb034c935a30d173e3942,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

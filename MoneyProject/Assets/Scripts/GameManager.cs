@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     private Calendar calendar;
 
-    private int money;
+    private int money = 100;
     private Resource[] resource; // 분리하는게 나을지도?
 
     private List<Worker> workers;

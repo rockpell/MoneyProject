@@ -154,6 +154,11 @@ public class InputManager : MonoBehaviour
             select = raycast.collider.gameObject;
             select.GetComponent<Worker>().selectWorker();
 
+            if (nowWorker.getNowStation().transform.name == "Busan")
+            {
+                changeButtonText();
+            }
+
             selectMenu.transform.position = _checkPosition + new Vector3(40, 70, 0);
             selectMenu.SetActive(true);
         }
