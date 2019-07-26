@@ -8,7 +8,7 @@ public class Station : MonoBehaviour
     [SerializeField] int[] neighborDistance;
     [SerializeField] private GameObject workerSpace;
     private Resource hasResource;
-    private List<Worker> workers;
+    [SerializeField] private List<Worker> workers;
 
     private int price;
     private bool isSeaprot;
@@ -33,6 +33,13 @@ public class Station : MonoBehaviour
     void Update()
     {
         
+    }
+    public void updatePosition()
+    {
+        for(int i = 0; i < workers.Count; i++)
+        {
+            workers[i].transform.position = getWorkerSpace() + (i * new Vector3(getWorkerSpaceRange(), 0, 0));
+        }
     }
 
     public void addNowPath() // 클릭시 InputManager의 현재 경로에 this 추가하는 함수

@@ -56,6 +56,7 @@ public class Worker : MonoBehaviour
             if (leftPath.Count != 0)
                 moveStation();
         }
+        nowStation.updatePosition();
     }
 
     public void selectWorker() // 마우스로 클릭시 이 함수 호출, 연결된 경로 하이라이트 효과도 여기서 호출
