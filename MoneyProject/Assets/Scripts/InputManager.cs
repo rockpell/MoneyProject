@@ -76,10 +76,25 @@ public class InputManager : MonoBehaviour
         if (raycast.collider != null && raycast.collider.tag == "Station")
         {
             select = raycast.collider.gameObject;
-            if(nowWorker != null)
+            Station _station = select.GetComponent<Station>();
+            if (nowWorker != null)
             {
-                select.GetComponent<Station>().addNowPath();
-                Debug.Log("Station Add");
+                if(nowPath.Count == 0)
+                {
+                    if (_station.IsConnectStation(nowWorker.getNowStation()))
+                    {
+                        addNowPath(_station);
+                        Debug.Log("first Station Add");
+                    }
+                }
+                else
+                {
+                    if (_station.IsConnectStation(nowPath[nowPath.Count - 1]))
+                    {
+                        addNowPath(_station);
+                        Debug.Log("Station Add");
+                    }
+                }
             }
         }
         else if(raycast.collider != null && raycast.collider.tag == "Worker")
@@ -110,7 +125,7 @@ public class InputManager : MonoBehaviour
             select = null;
             nowWorker = null;
         }
-            
+
         return select;
     }
     public void addNowPath(Station station) // 연결 가능한 거점인지 확인한 후에 add 해주는 작업 필요

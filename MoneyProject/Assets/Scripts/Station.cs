@@ -61,9 +61,18 @@ public class Station : MonoBehaviour
             {
                 _result = neighborDistance[i];
             }
-                
         }
 
         return _result;
+    }
+
+    public bool IsConnectStation(Station target)
+    {
+        for (int i = 0; i < neighborStations.Length; i++)
+        {
+            if (neighborStations[i] == target)
+                return true;
+        }
+        return false;
     }
 }
