@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour
         workers = GameObject.Find("WorkerListBtn").GetComponent<WorkerList>().getWorkers();
 
         calendar = new Calendar();
+
+        priceChangeLeftTurn = priceChangeTurnCount;
     }
 
     // Update is called once per frame
