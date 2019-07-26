@@ -8,6 +8,7 @@ public class TurnEnd : MonoBehaviour
     public void nextTurnMove()
     {
         workers = GameObject.Find("WorkerListBtn").GetComponent<WorkerList>().getWorkers();
+
         foreach(Worker worker in workers)
         {
             worker.progressTurn();

@@ -12,11 +12,13 @@ public class HighlightPath : MonoBehaviour
 
     public void TurnOnPath(string start, string end)
     {
-        Debug.Log(paths.Find(x => x.name == start + "-" + end));
+        paths.Find(x => x.name == (start + "-" + end)).SetActive(true);
     }
     public void TurnOffPath(string start, string end)
     {
-        Debug.Log(paths.Find(x => x.name == start + "-" + end));
+        Debug.Log("start"+start);
+        Debug.Log("end" + end);
+        paths.Find(x => x.name == (start + "-" + end)).SetActive(false);
     }
     void Update()
     {

@@ -89,7 +89,7 @@ public class InputManager : MonoBehaviour
                     {
                         if (nowPath.Count == 0)
                         {
-                            if (_station.IsConnectStation(nowWorker.getNowStation()))
+                            if (nowWorker.getNowStation().IsConnectStation(_station))
                             {
                                 addNowPath(_station);
                                 Debug.Log("first Station Add");
@@ -97,7 +97,7 @@ public class InputManager : MonoBehaviour
                         }
                         else
                         {
-                            if (_station.IsConnectStation(nowPath[nowPath.Count - 1]))
+                            if (nowPath[nowPath.Count - 1].IsConnectStation(_station))
                             {
                                 addNowPath(_station);
                                 Debug.Log("Station Add");
@@ -153,11 +153,17 @@ public class InputManager : MonoBehaviour
     }
     public void addNowPath(Station station) // 연결 가능한 거점인지 확인한 후에 add 해주는 작업 필요
     {
-        Debug.Log(nowPath.Count);
-        foreach (Station neighbor in nowPath[nowPath.Count - 1].getNeighbor())
+        if(nowPath.Count == 0)
         {
-            nowPath[nowPath.Count - 1].GetComponent<HighlightPath>().TurnOffPath(nowPath[nowPath.Count - 1].name, neighbor.name);
-            Debug.Log("하이라이트 제거 중");
+            foreach (Station neighbor in nowWorker.getNowStation().getNeighbor())
+                nowWorker.getNowStation().GetComponent<HighlightPath>().TurnOffPath(nowWorker.getNowStation().name, neighbor.name);
+        }
+        else
+        {
+            foreach (Station neighbor in nowPath[nowPath.Count - 1].getNeighbor())
+            {
+                nowPath[nowPath.Count - 1].GetComponent<HighlightPath>().TurnOffPath(nowPath[nowPath.Count - 1].name, neighbor.name);
+            }
         }
         nowPath.Add(station);
         foreach (Station neighbor in station.getNeighbor())

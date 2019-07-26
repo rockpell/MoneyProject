@@ -50,11 +50,19 @@ public class Worker : MonoBehaviour
     public void progressTurn() // 턴 진행시 호출
     {
         --arriveLeftTime;
-
+        
         if(arriveLeftTime < 0)
         {
             if (leftPath.Count != 0)
+            {
+                foreach (Station neighbor in leftPath[leftPath.Count - 1].getNeighbor())
+                {
+                    leftPath[leftPath.Count - 1].GetComponent<HighlightPath>().TurnOffPath(leftPath[leftPath.Count - 1].name, neighbor.name);
+                }
                 moveStation();
+                
+            }
+                
         }
         nowStation.updatePosition();
     }
@@ -64,6 +72,7 @@ public class Worker : MonoBehaviour
         InputManager.getInstance().selectWorker(this);
         foreach(Station station in nowStation.getNeighbor())
         {
+            Debug.Log("now Station: "+station.name);
             nowStation.GetComponent<HighlightPath>().TurnOnPath(nowStation.name, station.name);
         }
     }
