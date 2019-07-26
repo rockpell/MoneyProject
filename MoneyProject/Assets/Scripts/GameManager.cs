@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour, IObserverSubject
     private int priceChangeLeftTurn; // 시세 변동까지 남은 시간
     [SerializeField] private int priceChangeTurnCount = 3; // 시세 변동 주기
 
+    private int taxAndSalaryDayLeftTurn;
+    [SerializeField] private int taxAndSalaryDayCount = 4;
+    [SerializeField] private int salaryAmount = 500;
+
     private Calendar calendar;
 
     private int money = 10000;
@@ -62,6 +66,7 @@ public class GameManager : MonoBehaviour, IObserverSubject
         calendar = new Calendar();
 
         priceChangeLeftTurn = priceChangeTurnCount;
+        taxAndSalaryDayLeftTurn = taxAndSalaryDayCount;
     }
 
     List<Observer> observerList = new List<Observer>();
@@ -92,13 +97,17 @@ public class GameManager : MonoBehaviour, IObserverSubject
     {
         ++turnCount;
         --priceChangeLeftTurn;
+        --taxAndSalaryDayLeftTurn;
         calendar.nextDay();
 
         if (priceChangeLeftTurn <= 0)
         {
             priceChange();
         }
-
+        if(taxAndSalaryDayLeftTurn <= 0)
+        {
+            taxAndSalary();
+        }
         foreach (Worker worker in workers)
         {
             worker.progressTurn();
@@ -115,6 +124,21 @@ public class GameManager : MonoBehaviour, IObserverSubject
         IsTouchable = true;
     }
 
+    private void taxAndSalary()
+    {
+        int originMoney = money;
+        money -= workers.Count * salaryAmount;
+        if(originMoney*0.1f > money)
+        {
+            //여기서 게임 종료 함수 넣으면 됨
+            Debug.Log("파산!");
+        }
+        else
+        {
+            money -= (int)(originMoney*0.1f);
+        }
+        taxAndSalaryDayLeftTurn = taxAndSalaryDayCount;
+    }
     private void priceChange() // 가격 변동 적용 해줘야함
     {
         priceChangeLeftTurn = priceChangeTurnCount;
