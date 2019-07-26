@@ -11,11 +11,16 @@ public class GameManager : MonoBehaviour
     //[SerializeField] Text grainText;
     [SerializeField] Text[] resourceStatus;
     [SerializeField] Slider[] statusSlider;
+    [SerializeField] Text priceCountText;
 
     private int enlightenmentLevel;
     private int dangerLevel;
     private int trustLevel;
+
     private int turnCount;
+    private int priceChangeLeftTurn; // 시세 변동까지 남은 시간
+    [SerializeField] private int priceChangeTurnCount = 3; // 시세 변동 주기
+
     private int money;
     private Resource[] resource; // 분리하는게 나을지도?
 
@@ -37,9 +42,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         resource = new Resource[3];
-        resource[0] = new Resource(RTYPE.FABRIC);
-        resource[1] = new Resource(RTYPE.GRAIN);
-        resource[2] = new Resource(RTYPE.SEAFOOD);
+        resource[0] = new Resource(RTYPE.GRAIN);
+        resource[1] = new Resource(RTYPE.SEAFOOD); 
+        resource[2] = new Resource(RTYPE.FABRIC);
     }
 
     // Update is called once per frame
@@ -50,7 +55,17 @@ public class GameManager : MonoBehaviour
 
     public void nextTurn()
     {
+        --priceChangeLeftTurn;
 
+        if(priceChangeLeftTurn <= 0)
+        {
+            priceChange();
+        }
+    }
+
+    private void priceChange() // 가격 변동 적용 해줘야함
+    {
+        priceChangeLeftTurn = priceChangeTurnCount;
     }
 
     private void refreshUI()
@@ -60,14 +75,16 @@ public class GameManager : MonoBehaviour
         //seafoodText.text = money.ToString();
         //grainText.text = money.ToString();
 
-        resourceStatus[0].text = money.ToString();
-        resourceStatus[1].text = money.ToString();
-        resourceStatus[2].text = money.ToString();
-        resourceStatus[3].text = money.ToString();
+        resourceStatus[0].text = money.ToString(); // 돈
+        resourceStatus[1].text = resource[0].ToString(); // 농산물
+        resourceStatus[2].text = resource[1].ToString(); // 해산물
+        resourceStatus[3].text = resource[2].ToString(); // 면직물
 
         statusSlider[0].value = enlightenmentLevel;
         statusSlider[1].value = dangerLevel;
         statusSlider[2].value = trustLevel;
+
+        priceCountText.text = priceChangeLeftTurn.ToString();
     }
 
     public int EnlightenmentLevel
