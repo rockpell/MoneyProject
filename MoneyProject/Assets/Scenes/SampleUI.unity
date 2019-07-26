@@ -1596,6 +1596,11 @@ PrefabInstance:
       propertyPath: station
       value: 
       objectReference: {fileID: 955379203}
+    - target: {fileID: 2278294673437815355, guid: 4659433977e906c4fba12e222293bd17,
+        type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1507375022}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4659433977e906c4fba12e222293bd17, type: 3}
 --- !u!4 &92847616 stripped
@@ -3400,6 +3405,11 @@ PrefabInstance:
       propertyPath: station
       value: 
       objectReference: {fileID: 881376925}
+    - target: {fileID: 2278294673437815355, guid: 4659433977e906c4fba12e222293bd17,
+        type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 376537830}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4659433977e906c4fba12e222293bd17, type: 3}
 --- !u!4 &202749375 stripped
@@ -4401,6 +4411,11 @@ PrefabInstance:
       propertyPath: station
       value: 
       objectReference: {fileID: 1099181770}
+    - target: {fileID: 2278294673437815355, guid: 4659433977e906c4fba12e222293bd17,
+        type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1114453991}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4659433977e906c4fba12e222293bd17, type: 3}
 --- !u!4 &287976357 stripped
@@ -5325,6 +5340,11 @@ PrefabInstance:
       propertyPath: station
       value: 
       objectReference: {fileID: 1822272041}
+    - target: {fileID: 2278294673437815355, guid: 4659433977e906c4fba12e222293bd17,
+        type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1192786503}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4659433977e906c4fba12e222293bd17, type: 3}
 --- !u!4 &333734903 stripped
@@ -5813,7 +5833,7 @@ PrefabInstance:
     - target: {fileID: 2278294673437815354, guid: 4659433977e906c4fba12e222293bd17,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.42
+      value: 0.61
       objectReference: {fileID: 0}
     - target: {fileID: 2278294673437815354, guid: 4659433977e906c4fba12e222293bd17,
         type: 3}
@@ -5865,6 +5885,11 @@ PrefabInstance:
       propertyPath: station
       value: 
       objectReference: {fileID: 575994008}
+    - target: {fileID: 2278294673437815355, guid: 4659433977e906c4fba12e222293bd17,
+        type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1441575330}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4659433977e906c4fba12e222293bd17, type: 3}
 --- !u!4 &371483184 stripped
@@ -26194,6 +26219,11 @@ PrefabInstance:
       propertyPath: station
       value: 
       objectReference: {fileID: 797217166}
+    - target: {fileID: 2278294673437815355, guid: 4659433977e906c4fba12e222293bd17,
+        type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 941290031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4659433977e906c4fba12e222293bd17, type: 3}
 --- !u!4 &1499427502 stripped
@@ -31186,6 +31216,11 @@ PrefabInstance:
       propertyPath: station
       value: 
       objectReference: {fileID: 328965704}
+    - target: {fileID: 2278294673437815355, guid: 4659433977e906c4fba12e222293bd17,
+        type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 815726137}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4659433977e906c4fba12e222293bd17, type: 3}
 --- !u!4 &1787442354 stripped
@@ -32181,6 +32216,11 @@ PrefabInstance:
       propertyPath: station
       value: 
       objectReference: {fileID: 391153489}
+    - target: {fileID: 2278294673437815355, guid: 4659433977e906c4fba12e222293bd17,
+        type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 664518019}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4659433977e906c4fba12e222293bd17, type: 3}
 --- !u!4 &1840924803 stripped
@@ -34703,6 +34743,11 @@ PrefabInstance:
       propertyPath: station
       value: 
       objectReference: {fileID: 1221190023}
+    - target: {fileID: 2278294673437815355, guid: 4659433977e906c4fba12e222293bd17,
+        type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1935088572}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4659433977e906c4fba12e222293bd17, type: 3}
 --- !u!4 &1972200943 stripped

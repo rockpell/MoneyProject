@@ -7,6 +7,8 @@ public class ResourceMonitor : MonoBehaviour
     [SerializeField] private Station station;
     [SerializeField] private Resource resource;
     [SerializeField] private Sprite[] resourceIcon;
+
+    [SerializeField] private UnityEngine.UI.Text text;
     private int resourceValue;
 
     void Start()
@@ -26,7 +28,7 @@ public class ResourceMonitor : MonoBehaviour
             default:
                 break;
         }
-        
+        text.text = resource.price.ToString();
     }
 
     public void UpdateValue()
