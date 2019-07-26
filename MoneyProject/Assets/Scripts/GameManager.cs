@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, IObserverSubject
 {
     //[SerializeField] Text moenyText;
     //[SerializeField] Text fabricText;
@@ -62,6 +62,24 @@ public class GameManager : MonoBehaviour
         priceChangeLeftTurn = priceChangeTurnCount;
     }
 
+    List<Observer> observerList = new List<Observer>();
+    public void Notify()
+    {
+        Debug.Log("Notify!");
+        for (int i = 0; i < observerList.Count; i++)
+        {
+            Debug.Log("observer notifying");
+            observerList[i].OnNotify();
+        }
+    }
+    public void AddObserver(Observer ob)
+    {
+        observerList.Add(ob);
+    }
+    public void RemoveObserver(Observer ob)
+    {
+        observerList.Remove(ob);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -98,6 +116,7 @@ public class GameManager : MonoBehaviour
     {
         priceChangeLeftTurn = priceChangeTurnCount;
         InputManager.getInstance().showMessage("시세가 변동됩니다.");
+        Notify();
     }
 
     private void refreshUI()

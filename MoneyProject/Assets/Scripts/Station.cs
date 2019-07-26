@@ -12,8 +12,9 @@ public class Station : MonoBehaviour
 
     [SerializeField] private Resource hasResource;
     [SerializeField] private int price;
-    [SerializeField] private float priceChangeValue;
     [SerializeField] private float workerSpaceRange;
+
+    private PriceChanger priceChanger;
 
     private bool isSeaprot;
     public void addWorker(Worker worker)
@@ -49,6 +50,7 @@ public class Station : MonoBehaviour
                 break;
         }
         hasResource.count = Random.Range(100, 1000);
+        priceChanger = new PriceChanger();
     }
 
     // Update is called once per frame
@@ -56,11 +58,7 @@ public class Station : MonoBehaviour
     {
         
     }
-    public void updatePrice()
-    {
-        //여기서 가격 변동 조절
-        Random.Range((int)price * (1 - priceChangeValue), (int)price * (1 + priceChangeValue));
-    }
+
     public void updatePosition()
     {
         for(int i = 0; i < workers.Count; i++)
@@ -106,6 +104,7 @@ public class Station : MonoBehaviour
     public int Price
     {
         get { return price; }
+        set { price = value; }
     }
     public Resource GetResource
     {

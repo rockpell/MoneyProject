@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourceMonitor : MonoBehaviour
+public class ResourceMonitor : MonoBehaviour, Observer
 {
     [SerializeField] private Station station;
     [SerializeField] private Resource resource;
@@ -13,6 +13,7 @@ public class ResourceMonitor : MonoBehaviour
 
     void Start()
     {
+        GameManager.getInstance().AddObserver(this);
         resource = station.GetResource;
         switch(resource.rType)
         {
@@ -31,9 +32,10 @@ public class ResourceMonitor : MonoBehaviour
         text.text = resource.price.ToString();
     }
 
-    public void UpdateValue()
+    public void OnNotify()
     {
         resourceValue = station.Price;
+        text.text = resource.price.ToString();
     }
     void Update()
     {
