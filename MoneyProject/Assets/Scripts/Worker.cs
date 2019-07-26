@@ -65,9 +65,13 @@ public class Worker : MonoBehaviour
     private void moveStation()
     {
         changeSprite();
-
         nowStation = leftPath[0];
         leftPath.RemoveAt(0);
+        moveWorker();
+    }
+    private void moveWorker()
+    {
+        this.gameObject.transform.position = nowStation.getWorkerSpace() + (nowStation.getWorkerCount()*new Vector3(nowStation.getWorkerSpaceRange(), 0, 0));
     }
     public void initNowStation()
     {

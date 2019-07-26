@@ -15,7 +15,7 @@ public class WorkerList : MonoBehaviour
 
     [SerializeField] Station busan;
 
-    [SerializeField] float StationWorkerRange;
+    private float StationWorkerRange;
 
     [SerializeField] GameObject popUpSpace;
     void Start()
@@ -40,7 +40,7 @@ public class WorkerList : MonoBehaviour
     public void employWorker()
     {
         int busanWorker = busan.getWorkerCount();
-        workers.Add(Instantiate(basicWorker, busan.getWorkerSpace() + (busanWorker * new Vector3(StationWorkerRange,0,0)), Quaternion.identity));
+        workers.Add(Instantiate(basicWorker, busan.getWorkerSpace() + (busanWorker * new Vector3(busan.getWorkerSpaceRange(),0,0)), Quaternion.identity));
         busan.increaseWorker();
         addWorkerListPopUp(workers[workers.Count - 1]);
         workers[workers.Count - 1].initNowStation();
@@ -70,7 +70,7 @@ public class WorkerList : MonoBehaviour
     {
         for(int i = 0; i < workers.Count; i++)
         {
-            workers[i].gameObject.transform.position = workers[i].getNowStation().getWorkerSpace() + (i * new Vector3(StationWorkerRange, 0, 0));
+            workers[i].gameObject.transform.position = workers[i].getNowStation().getWorkerSpace() + (i * new Vector3(busan.getWorkerSpaceRange(), 0, 0));
         }
     }
     public void updateWorkerList()

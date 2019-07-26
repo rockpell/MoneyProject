@@ -12,6 +12,7 @@ public class Station : MonoBehaviour
     private int price;
     private int workerCount;
     private bool isSeaprot;
+    [SerializeField] private float workerSpaceRange;
 
     public void increaseWorker()
     {
@@ -41,6 +42,7 @@ public class Station : MonoBehaviour
 
     public int getWorkerCount() { return workerCount; }
     public Vector3 getWorkerSpace() { return workerSpace.transform.position; }
+    public float getWorkerSpaceRange() { return workerSpaceRange; }
 
     public int calNeighborDistance(Station station)
     {
