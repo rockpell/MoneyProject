@@ -153,12 +153,18 @@ public class InputManager : MonoBehaviour
     }
     public void addNowPath(Station station) // 연결 가능한 거점인지 확인한 후에 add 해주는 작업 필요
     {
-        foreach(Station neighbor in nowWorker.getNowStation().getNeighbor())
+        Debug.Log(nowPath.Count);
+        foreach (Station neighbor in nowPath[nowPath.Count - 1].getNeighbor())
         {
-            nowWorker.getNowStation().GetComponent<HighlightPath>().TurnOffPath(nowWorker.getNowStation().name, neighbor.name);
+            nowPath[nowPath.Count - 1].GetComponent<HighlightPath>().TurnOffPath(nowPath[nowPath.Count - 1].name, neighbor.name);
+            Debug.Log("하이라이트 제거 중");
         }
         nowPath.Add(station);
-
+        foreach (Station neighbor in station.getNeighbor())
+        {
+            station.GetComponent<HighlightPath>().TurnOnPath(station.name, neighbor.name);
+            Debug.Log("하이라이트 추가 중");
+        }
     }
 
     public void initNowPath()
