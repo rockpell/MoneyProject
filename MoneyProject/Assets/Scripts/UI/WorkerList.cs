@@ -10,6 +10,7 @@ public class WorkerList : MonoBehaviour
 
     [SerializeField] private GameObject uiWorker;
     [SerializeField] private List<GameObject> uiWorkers;
+    private Worker selectWorker;
     private int uiWorkerCount;
 
     [SerializeField] Station busan;
@@ -42,10 +43,34 @@ public class WorkerList : MonoBehaviour
         workers.Add(Instantiate(basicWorker, busan.getWorkerSpace() + (busanWorker * new Vector3(StationWorkerRange,0,0)), Quaternion.identity));
         busan.increaseWorker();
         addWorkerListPopUp(workers[workers.Count - 1]);
+        workers[workers.Count - 1].initNowStation();
     }
-    public void fireWorker(Worker worker)
+    public void selectUIWorker(GameObject worker)
     {
-        workers.Remove(worker);
+        int index = uiWorkers.IndexOf(worker);
+        selectWorker = workers[index];
+        Debug.Log("selectWorker: " + selectWorker);
+        //하이라이트 표시
+    }
+    public void fireWorker()
+    {
+        int index = 0;
+        if(selectWorker != null)
+        {
+            index = workers.IndexOf(selectWorker);
+            GameObject.Destroy(selectWorker.gameObject);
+            workers.Remove(selectWorker);
+            GameObject.Destroy(uiWorkers[index]);
+            uiWorkers.Remove(uiWorkers[index]);
+            busan.decreaseWorker();
+        }
+    }
+    private void UpdateWorkerPosition()
+    {
+        for(int i = 0; i < workers.Count; i++)
+        {
+            workers[i].gameObject.transform.position = workers[i].getNowStation().getWorkerSpace() + (i * new Vector3(StationWorkerRange, 0, 0));
+        }
     }
     public void updateWorkerList()
     {
@@ -55,7 +80,6 @@ public class WorkerList : MonoBehaviour
                 uiWorkers[index].GetComponent<UnityEngine.UI.Image>().sprite = workers[index].getShipImage();
             else if (workers[index].getSTATUS() == STATUS.WAGON)
                 uiWorkers[index].GetComponent < UnityEngine.UI.Image>().sprite = workers[index].getWagonImage();
-
         }
     }
 }

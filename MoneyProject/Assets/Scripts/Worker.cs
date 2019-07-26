@@ -16,7 +16,7 @@ public class Worker : MonoBehaviour
 
     void Start()
     {
-        nowStation = GameObject.Find("Busan").GetComponent<Station>();
+        
     }
 
     void Update()
@@ -69,6 +69,11 @@ public class Worker : MonoBehaviour
         nowStation = leftPath[0];
         leftPath.RemoveAt(0);
     }
+    public void initNowStation()
+    {
+        nowStation = GameObject.Find("Busan").GetComponent<Station>();
+    }
+    public Station getNowStation() { return nowStation; }
     public STATUS getSTATUS() { return status; }
     public Sprite getWagonImage() { return wagon; }
     public Sprite getShipImage() { return ship; }
