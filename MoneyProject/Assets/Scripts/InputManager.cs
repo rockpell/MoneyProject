@@ -5,6 +5,7 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     [SerializeField] private Transform[] boundarys; // right, left, upper, bottom
+    [SerializeField] private GameObject selectMenu;
     [SerializeField] private List<Station> nowPath;
     [SerializeField] private float zoomScale = 0.5f;
     [SerializeField] private float dragScale = 0.05f;
@@ -14,7 +15,8 @@ public class InputManager : MonoBehaviour
     private Vector3 dragPivot;
     private float xMin, xMax;
     private float yMin, yMax;
-    
+
+    private bool isMoveMode = false;
 
     private static InputManager instance;
     public static InputManager getInstance()
@@ -64,68 +66,89 @@ public class InputManager : MonoBehaviour
         Camera.main.orthographicSize -= Input.mouseScrollDelta.y * zoomScale;
         if (Camera.main.orthographicSize > 5) Camera.main.orthographicSize = 5;
         else if (Camera.main.orthographicSize < 1) Camera.main.orthographicSize = 1;
+
+        //Debug.Log("mode: " + isMoveMode + "   nowWorker: " + nowWorker);
     }
 
     private GameObject checkObject()
     {
-        GameObject select;
-
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        GameObject select = null;
+        Vector3 _checkPosition = Input.mousePosition;
+        Ray ray = Camera.main.ScreenPointToRay(_checkPosition);
         RaycastHit2D raycast = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
 
-        if (raycast.collider != null && raycast.collider.tag == "Station")
+        if (isMoveMode)
         {
-            select = raycast.collider.gameObject;
-            Station _station = select.GetComponent<Station>();
-            if (nowWorker != null)
+            if(raycast.collider != null)
             {
-                if(nowPath.Count == 0)
+                if (raycast.collider.tag == "Station")
                 {
-                    if (_station.IsConnectStation(nowWorker.getNowStation()))
+                    select = raycast.collider.gameObject;
+                    Station _station = select.GetComponent<Station>();
+                    if (nowWorker != null && isMoveMode)
                     {
-                        addNowPath(_station);
-                        Debug.Log("first Station Add");
+                        if (nowPath.Count == 0)
+                        {
+                            if (_station.IsConnectStation(nowWorker.getNowStation()))
+                            {
+                                addNowPath(_station);
+                                Debug.Log("first Station Add");
+                            }
+                        }
+                        else
+                        {
+                            if (_station.IsConnectStation(nowPath[nowPath.Count - 1]))
+                            {
+                                addNowPath(_station);
+                                Debug.Log("Station Add");
+                            }
+                        }
                     }
                 }
-                else
+                else if (raycast.collider.tag == "Worker")
                 {
-                    if (_station.IsConnectStation(nowPath[nowPath.Count - 1]))
+                    if (nowWorker != null)
                     {
-                        addNowPath(_station);
-                        Debug.Log("Station Add");
+                        if (nowPath.Count != 0)
+                        {
+                            savePath();
+                            initNowPath();
+                        }
+                        Debug.Log("reSelect Worker");
                     }
+                    select = raycast.collider.gameObject;
+                    select.GetComponent<Worker>().selectWorker();
+
+                    //selectMenu.transform.position = _checkPosition;
+                    //selectMenu.SetActive(true);
                 }
             }
-        }
-        else if(raycast.collider != null && raycast.collider.tag == "Worker")
-        {
-            if(nowWorker != null)
+            else
             {
-                if(nowPath.Count != 0)
+                if (nowWorker != null)
                 {
-                    savePath();
-                    initNowPath();
+                    if (nowPath.Count != 0)
+                    {
+                        savePath();
+                        initNowPath();
+                    }
+                    Debug.Log("unSelect Worker");
                 }
-                Debug.Log("unSelect Worker");
+                select = null;
+                nowWorker = null;
+                isMoveMode = false;
+                selectMenu.SetActive(false);
             }
-            select = raycast.collider.gameObject;
-            select.GetComponent<Worker>().selectWorker();
-        }
-        else
-        {
-            if (nowWorker != null)
-            {
-                if(nowPath.Count != 0)
-                {
-                    savePath();
-                    initNowPath();
-                }
-                Debug.Log("unSelect Worker");
-            }
-            select = null;
-            nowWorker = null;
         }
 
+        if (raycast.collider != null && raycast.collider.tag == "Worker")
+        {
+            select = raycast.collider.gameObject;
+            select.GetComponent<Worker>().selectWorker();
+
+            selectMenu.transform.position = _checkPosition + new Vector3(40, 70, 0);
+            selectMenu.SetActive(true);
+        }
         return select;
     }
     public void addNowPath(Station station) // 연결 가능한 거점인지 확인한 후에 add 해주는 작업 필요
@@ -148,4 +171,9 @@ public class InputManager : MonoBehaviour
         nowWorker = worker;
     }
 
+    public void SetMoveMode()
+    {
+        isMoveMode = true;
+        selectMenu.SetActive(false);
+    }
 }
