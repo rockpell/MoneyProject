@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trading : MonoBehaviour
+public class Trading
 {
 
     void Start()
@@ -76,6 +76,32 @@ public class Trading : MonoBehaviour
     {
         GameManager.getInstance().Money -= bribeAmount;
         GameManager.getInstance().DangerLevel -= bribeAmount / 10000;
+    }
+
+    public void storeResource(Resource workerResource, Resource stationResource, int amount)
+    {
+        if(workerResource.count < amount)
+        {
+            return;
+        }
+        else
+        {
+            stationResource.count += amount;
+            workerResource.count -= amount;
+        }
+    }
+    
+    public void releaseResource(Resource workerResource, Resource stationResource, int amount)
+    {
+        if(stationResource.count < amount)
+        {
+            return;
+        }
+        else
+        {
+            stationResource.count -= amount;
+            workerResource.count += amount;
+        }
     }
     void Update()
     {
