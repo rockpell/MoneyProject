@@ -26,9 +26,29 @@ public class Station : MonoBehaviour
         workers.Remove(worker);
     }
 
-    void Start()
+    void Awake()
     {
         workers = new List<Worker>();
+        switch (Random.Range(0, 3))
+        {
+            case 0:
+                hasResource = new Resource(RTYPE.FABRIC);
+                hasResource.price = 230;
+                break;
+            case 1:
+                hasResource = new Resource(RTYPE.GRAIN);
+                hasResource.price = 200;
+                break;
+            case 2:
+                hasResource = new Resource(RTYPE.SEAFOOD);
+                hasResource.price = 170;
+                break;
+            default:
+                hasResource = new Resource(RTYPE.GRAIN);
+                hasResource.price = 200;
+                break;
+        }
+        hasResource.count = Random.Range(100, 1000);
     }
 
     // Update is called once per frame
@@ -86,5 +106,9 @@ public class Station : MonoBehaviour
     public int Price
     {
         get { return price; }
+    }
+    public Resource GetResource
+    {
+        get { return hasResource; }
     }
 }
