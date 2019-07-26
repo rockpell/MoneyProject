@@ -5204,7 +5204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc69c94825823b4e8eea3a826917db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeValue: 0.15
+  changeValue: 0.5
   station: {fileID: 328965704}
 --- !u!1001 &330043407
 PrefabInstance:
@@ -6560,7 +6560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc69c94825823b4e8eea3a826917db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeValue: 0.15
+  changeValue: 0.5
   station: {fileID: 391153489}
 --- !u!1001 &400226840
 PrefabInstance:
@@ -9601,7 +9601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc69c94825823b4e8eea3a826917db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeValue: 0.15
+  changeValue: 0.5
   station: {fileID: 575994008}
 --- !u!1001 &578402163
 PrefabInstance:
@@ -13122,7 +13122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc69c94825823b4e8eea3a826917db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeValue: 0.15
+  changeValue: 0.5
   station: {fileID: 797217166}
 --- !u!1001 &801377095
 PrefabInstance:
@@ -14542,7 +14542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc69c94825823b4e8eea3a826917db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeValue: 0.15
+  changeValue: 0.5
   station: {fileID: 881376925}
 --- !u!114 &883532441 stripped
 MonoBehaviour:
@@ -15941,7 +15941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc69c94825823b4e8eea3a826917db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeValue: 0.15
+  changeValue: 0.5
   station: {fileID: 955379203}
 --- !u!1001 &966242734
 PrefabInstance:
@@ -18401,7 +18401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc69c94825823b4e8eea3a826917db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeValue: 0.15
+  changeValue: 0.5
   station: {fileID: 1099181770}
 --- !u!1001 &1106379231
 PrefabInstance:
@@ -21291,7 +21291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc69c94825823b4e8eea3a826917db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeValue: 0.15
+  changeValue: 0.5
   station: {fileID: 1221190023}
 --- !u!1001 &1227579283
 PrefabInstance:
@@ -32118,7 +32118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc69c94825823b4e8eea3a826917db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeValue: 0.15
+  changeValue: 0.5
   station: {fileID: 1822272041}
 --- !u!1001 &1822356360
 PrefabInstance:
@@ -37519,9 +37519,44 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: nextTurn
       objectReference: {fileID: 0}
+    - target: {fileID: 317759206906783305, guid: 44fe52734b2eb034c935a30d173e3942,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 317759208013252298, guid: 44fe52734b2eb034c935a30d173e3942,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 317759207950596892, guid: 44fe52734b2eb034c935a30d173e3942,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 317759207950596892, guid: 44fe52734b2eb034c935a30d173e3942,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 317759206750286966, guid: 44fe52734b2eb034c935a30d173e3942,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 317759206750286966, guid: 44fe52734b2eb034c935a30d173e3942,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 317759206496933155, guid: 44fe52734b2eb034c935a30d173e3942,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 317759206496933155, guid: 44fe52734b2eb034c935a30d173e3942,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3181909192476024652, guid: 44fe52734b2eb034c935a30d173e3942,
@@ -37828,6 +37863,56 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 220033087830768564, guid: 44fe52734b2eb034c935a30d173e3942,
+        type: 3}
+      propertyPath: m_Name
+      value: TrustLabel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206304804569454467, guid: 44fe52734b2eb034c935a30d173e3942,
+        type: 3}
+      propertyPath: m_Name
+      value: DangerLabel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654735909823731998, guid: 44fe52734b2eb034c935a30d173e3942,
+        type: 3}
+      propertyPath: m_Name
+      value: DangerValue
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128561066314142261, guid: 44fe52734b2eb034c935a30d173e3942,
+        type: 3}
+      propertyPath: m_Name
+      value: DisbursmentLabel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349308810967207510, guid: 44fe52734b2eb034c935a30d173e3942,
+        type: 3}
+      propertyPath: m_Name
+      value: DisbursmentValue
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483879152149590052, guid: 44fe52734b2eb034c935a30d173e3942,
+        type: 3}
+      propertyPath: m_Name
+      value: ProfitValue
+      objectReference: {fileID: 0}
+    - target: {fileID: 7224163793129787666, guid: 44fe52734b2eb034c935a30d173e3942,
+        type: 3}
+      propertyPath: m_Name
+      value: ProfitLabel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584072519154183906, guid: 44fe52734b2eb034c935a30d173e3942,
+        type: 3}
+      propertyPath: m_Name
+      value: EnlightmentValue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771259770932615921, guid: 44fe52734b2eb034c935a30d173e3942,
+        type: 3}
+      propertyPath: m_Name
+      value: EnlightmentLabel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7036201910123018434, guid: 44fe52734b2eb034c935a30d173e3942,
+        type: 3}
+      propertyPath: m_Name
+      value: TrustValue
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44fe52734b2eb034c935a30d173e3942, type: 3}

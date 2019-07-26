@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour, IObserverSubject
     private Calendar calendar;
 
     private int money = 100;
+    private int profit = 0;
+    private int disbursment = 0;
     private Resource[] resource; // 분리하는게 나을지도?
 
     private List<Worker> workers;
@@ -174,5 +176,17 @@ public class GameManager : MonoBehaviour, IObserverSubject
     {
         get { return isTouchable; }
         set { isTouchable = value; }
+    }
+
+    public int Profit
+    {
+        get { return profit; }
+        set { profit = value; }
+    }
+
+    public int Disbursment
+    {
+        get { return disbursment; }
+        set { disbursment = value; }
     }
 }
