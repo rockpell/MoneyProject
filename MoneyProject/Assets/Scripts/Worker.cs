@@ -73,6 +73,7 @@ public class Worker : MonoBehaviour
     public void selectWorker() // 마우스로 클릭시 이 함수 호출, 연결된 경로 하이라이트 효과도 여기서 호출
     {
         InputManager.getInstance().selectWorker(this);
+        GameObject.Find("WorkerListBtn").GetComponent<WorkerList>().selectUIWorker(this);
         foreach(Station station in nowStation.getNeighbor())
         {
             Debug.Log("now Station: "+station.name);

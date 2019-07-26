@@ -71,6 +71,20 @@ public class WorkerList : MonoBehaviour
         Debug.Log("selectWorker: " + selectWorker);
         //하이라이트 표시
     }
+    public void selectUIWorker(Worker worker)
+    {
+        int index = workers.IndexOf(worker);
+        selectWorker = workers[index];
+        for (int i = 0; i < workers.Count; i++)
+        {
+            uiWorkers[i].GetComponent<UnityEngine.UI.Image>().sprite = normalWorkerImage;
+            workers[i].setShipImage(normalWorkerImage);
+        }
+        uiWorkers[index].GetComponent<UnityEngine.UI.Image>().sprite = selectWorkerImage;
+        selectWorker.setShipImage(selectWorkerImage);
+        Debug.Log("selectWorker: " + selectWorker);
+        //하이라이트 표시
+    }
     public void fireWorker()
     {
         int index = 0;
