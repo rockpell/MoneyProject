@@ -7,13 +7,12 @@ public class Station : MonoBehaviour
     [SerializeField] private Station[] neighborStations;
     [SerializeField] int[] neighborDistance;
     [SerializeField] private GameObject workerSpace;
-    private Resource hasResource;
     [SerializeField] private List<Worker> workers;
-
-    private int price;
-    private bool isSeaprot;
+    [SerializeField] private RTYPE hasResourceType;
+    [SerializeField] private int price;
     [SerializeField] private float workerSpaceRange;
 
+    private bool isSeaprot;
     public void addWorker(Worker worker)
     {
         workers.Add(worker);
