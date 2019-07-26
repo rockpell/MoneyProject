@@ -274,6 +274,8 @@ public class InputManager : MonoBehaviour
     {
         sellChoiceMenu.SetActive(true);
         selectMenu.SetActive(false);
+
+        sellChoiceMenu.GetComponent<SellChoiceUI>().sycnHasResource(nowWorker);
     }
 
     public void disappearSellChoiceMenu() // 수량 입력하는 화면에서 취소버튼
