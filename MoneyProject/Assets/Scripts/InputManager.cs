@@ -57,8 +57,11 @@ public class InputManager : MonoBehaviour
         {
             if(nowWorker != null)
             {
-                savePath();
-                initNowPath();
+                if(nowPath.Count != 0)
+                {
+                    savePath();
+                    initNowPath();
+                }
                 Debug.Log("unSelect Worker");
             }
             select = raycast.collider.gameObject;
@@ -68,15 +71,17 @@ public class InputManager : MonoBehaviour
         {
             if (nowWorker != null)
             {
-                savePath();
-                initNowPath();
+                if(nowPath.Count != 0)
+                {
+                    savePath();
+                    initNowPath();
+                }
                 Debug.Log("unSelect Worker");
             }
             select = null;
             nowWorker = null;
         }
             
-
         return select;
     }
     public void addNowPath(Station station)
