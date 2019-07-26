@@ -12,12 +12,12 @@ public class Calendar
     public void nextDay()
     {
         ++day;
-        day = checkMonth(month);
+        day = checkMonth(month, day);
     }
 
-    private int checkMonth(int month)
+    private int checkMonth(int month, int day)
     {
-        int _result = 1;
+        int _result = day;
         switch (month)
         {
             case 1:
