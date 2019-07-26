@@ -21,7 +21,7 @@ public class Trading
         }
         else
         {
-            int profit = workerResource.price * count;
+            int profit = stationResource.price * count;
             workerResource.count -= count;
             GameManager.getInstance().Money += profit;
             GameManager.getInstance().Profit += profit;
