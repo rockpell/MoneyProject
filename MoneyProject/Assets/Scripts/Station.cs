@@ -10,7 +10,8 @@ public class Station : MonoBehaviour
     [SerializeField] private GameObject workerSpace;
     [SerializeField] private List<Worker> workers;
 
-    [SerializeField] private Resource hasResource;
+    [SerializeField] private Resource sellingResource;
+    [SerializeField] private Resource[] purchaseResources;
     [SerializeField] private int price;
     [SerializeField] private float workerSpaceRange;
 
@@ -29,27 +30,50 @@ public class Station : MonoBehaviour
 
     void Awake()
     {
+        purchaseResources = new Resource[2];
         workers = new List<Worker>();
         switch (Random.Range(0, 3))
         {
             case 0:
-                hasResource = new Resource(RTYPE.FABRIC);
-                hasResource.price = 230;
+                sellingResource = new Resource(RTYPE.FABRIC);
+                sellingResource.price = 230;
+
+                purchaseResources[0] = new Resource(RTYPE.GRAIN);
+                purchaseResources[0].price = 200;
+                purchaseResources[1] = new Resource(RTYPE.SEAFOOD);
+                purchaseResources[1].price = 170;
                 break;
             case 1:
-                hasResource = new Resource(RTYPE.GRAIN);
-                hasResource.price = 200;
+                sellingResource = new Resource(RTYPE.GRAIN);
+                sellingResource.price = 200;
+
+                purchaseResources[0] = new Resource(RTYPE.FABRIC);
+                purchaseResources[0].price = 230;
+                purchaseResources[1] = new Resource(RTYPE.SEAFOOD);
+                purchaseResources[1].price = 170;
                 break;
             case 2:
-                hasResource = new Resource(RTYPE.SEAFOOD);
-                hasResource.price = 170;
+                sellingResource = new Resource(RTYPE.SEAFOOD);
+                sellingResource.price = 170;
+
+                purchaseResources[0] = new Resource(RTYPE.GRAIN);
+                purchaseResources[0].price = 200;
+                purchaseResources[1] = new Resource(RTYPE.FABRIC);
+                purchaseResources[1].price = 230;
                 break;
             default:
-                hasResource = new Resource(RTYPE.GRAIN);
-                hasResource.price = 200;
+                sellingResource = new Resource(RTYPE.GRAIN);
+                sellingResource.price = 200;
+
+                purchaseResources[0] = new Resource(RTYPE.FABRIC);
+                purchaseResources[0].price = 230;
+                purchaseResources[1] = new Resource(RTYPE.SEAFOOD);
+                purchaseResources[1].price = 170;
                 break;
         }
-        hasResource.count = Random.Range(100, 1000);
+        sellingResource.count = Random.Range(100, 1000);
+        purchaseResources[0].count = Random.Range(100, 1000);
+        purchaseResources[1].count = Random.Range(100, 1000);
         priceChanger = new PriceChanger();
     }
 
@@ -108,6 +132,10 @@ public class Station : MonoBehaviour
     }
     public Resource GetResource
     {
-        get { return hasResource; }
+        get { return sellingResource; }
+    }
+    public Resource[] GetResources
+    {
+        get { return purchaseResources; }
     }
 }
