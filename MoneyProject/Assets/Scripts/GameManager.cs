@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //refreshUI();
+        refreshUI();
     }
 
     public void nextTurn()
@@ -119,14 +119,14 @@ public class GameManager : MonoBehaviour
 
     public int TrustLevel
     {
-        get { return dangerLevel; }
-        set { dangerLevel = value; }
+        get { return trustLevel; }
+        set { trustLevel = value; }
     }
 
     public int TurnCount
     {
-        get { return dangerLevel; }
-        set { dangerLevel = value; }
+        get { return turnCount; }
+        set { turnCount = value; }
     }
 
     public int Money

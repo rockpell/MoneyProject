@@ -6,8 +6,10 @@ public class Station : MonoBehaviour
 {
     [SerializeField] private Station[] neighborStations;
     [SerializeField] int[] neighborDistance;
+
     [SerializeField] private GameObject workerSpace;
     [SerializeField] private List<Worker> workers;
+
     [SerializeField] private RTYPE hasResourceType;
     //[SerializeField] private int price; // 가격은 품목 통일 하는게 좋을듯
     [SerializeField] private float workerSpaceRange;
