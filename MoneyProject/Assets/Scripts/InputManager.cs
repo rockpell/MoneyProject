@@ -9,6 +9,10 @@ public class InputManager : MonoBehaviour
     [SerializeField] private GameObject selectMenu;
     [SerializeField] private GameObject messageUI;
     [SerializeField] private List<Station> nowPath;
+
+    [SerializeField] private Text buyButton;
+    [SerializeField] private Text sellButton;
+
     [SerializeField] private float zoomScale = 0.5f;
     [SerializeField] private float dragScale = 0.05f;
 
@@ -226,5 +230,17 @@ public class InputManager : MonoBehaviour
     private void disappearMessage()
     {
         messageUI.SetActive(false);
+    }
+
+    private void changeButtonText()
+    {
+        buyButton.text = "물품 출고";
+        sellButton.text = "물품 적재";
+    }
+
+    private void initChangeButtonText()
+    {
+        buyButton.text = "물품 구매";
+        sellButton.text = "물품 판매";
     }
 }
