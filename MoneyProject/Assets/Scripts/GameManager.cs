@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour, IObserverSubject
 
     private Calendar calendar;
 
-    private int money = 10000;
+    private int money = 3000;
     private int profit = 0;
     private int disbursment = 0;
     private Resource[] resource; // 분리하는게 나을지도?
@@ -112,6 +112,18 @@ public class GameManager : MonoBehaviour, IObserverSubject
         {
             worker.progressTurn();
         }
+
+        if(enlightenmentLevel > 60)
+        {
+            EndGame.getInstance().selectEnding(ENDING.ENLIGHTMENT);
+            Debug.Log("ENDING.ENLIGHTMENT");
+        }
+        else if(dangerLevel > 50)
+        {
+            EndGame.getInstance().selectEnding(ENDING.DANGER);
+            Debug.Log("ENDING.DANGER");
+        }
+
         resultPanel.SetActive(true);
         resultPanel.GetComponent<ResultPanel>().UpdateValue();
         IsTouchable = false;
@@ -131,6 +143,7 @@ public class GameManager : MonoBehaviour, IObserverSubject
         if(originMoney*0.1f > money)
         {
             EndGame.getInstance().selectEnding(ENDING.BANKRUPTCY);
+            Debug.Log("ENDING.BANKRUPTCY");
         }
         else
         {

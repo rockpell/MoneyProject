@@ -174,7 +174,7 @@ public class InputManager : MonoBehaviour
                 isNowBusan = true;
             }
 
-            selectMenu.transform.position = _checkPosition + new Vector3(40, 70, 0);
+            selectMenu.transform.position = _checkPosition + new Vector3(40, 30, 0);
             selectMenu.SetActive(true);
         }
 

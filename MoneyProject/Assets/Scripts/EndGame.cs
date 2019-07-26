@@ -6,7 +6,7 @@ public class EndGame : MonoBehaviour
 {
     //파산, 의심, 계몽 3가지 엔딩
     [SerializeField] private Sprite[] endingScene;
-    private UnityEngine.UI.Image image;
+    [SerializeField] private UnityEngine.UI.Image image;
     private static EndGame instance;
 
     public static EndGame getInstance()
@@ -20,9 +20,14 @@ public class EndGame : MonoBehaviour
         else
             Destroy(this.gameObject);
     }
+    [ContextMenu("dfdf")]
+    public void test()
+    {
+        selectEnding(ENDING.BANKRUPTCY);
+    }
+
     public void selectEnding(ENDING ending)
     {
-        image = GetComponent<UnityEngine.UI.Image>();
         image.gameObject.SetActive(true);
         switch(ending)
         {
