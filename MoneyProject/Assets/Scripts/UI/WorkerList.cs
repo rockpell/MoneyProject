@@ -18,6 +18,7 @@ public class WorkerList : MonoBehaviour
     private float StationWorkerRange;
 
     [SerializeField] GameObject popUpSpace;
+    [SerializeField] int employmentCost = 300;
     void Start()
     {
         
@@ -38,11 +39,19 @@ public class WorkerList : MonoBehaviour
     }
     public void employWorker()
     {
-        int busanWorker = busan.getWorkerCount();
-        workers.Add(Instantiate(basicWorker, busan.getWorkerSpace() + (busanWorker * new Vector3(busan.getWorkerSpaceRange(),0,0)), Quaternion.identity));
-        busan.addWorker(workers[workers.Count - 1]);
-        addWorkerListPopUp(workers[workers.Count - 1]);
-        workers[workers.Count - 1].initNowStation();
+        if(GameManager.getInstance().Money >= employmentCost)
+        {
+            GameManager.getInstance().Money -= employmentCost;
+            int busanWorker = busan.getWorkerCount();
+            workers.Add(Instantiate(basicWorker, busan.getWorkerSpace() + (busanWorker * new Vector3(busan.getWorkerSpaceRange(), 0, 0)), Quaternion.identity));
+            busan.addWorker(workers[workers.Count - 1]);
+            addWorkerListPopUp(workers[workers.Count - 1]);
+            workers[workers.Count - 1].initNowStation();
+        }
+        else
+        {
+            GameManager.getInstance().TrustLevel -= 30;
+        }
     }
     public void selectUIWorker(GameObject worker)
     {
