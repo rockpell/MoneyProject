@@ -111,4 +111,9 @@ public class Worker : MonoBehaviour
         }
         return 0;
     }
+    public Resource[] GetResources
+    {
+        get { return hasResources; }
+    }
+
 }
