@@ -16,6 +16,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] private GameObject buyChoiceMenu;
     [SerializeField] private GameObject sellChoiceMenu;
     [SerializeField] private GameObject subsidyChoiceMenu;
+    [SerializeField] private GameObject birbeChoiceMenu;
 
     [SerializeField] private GameObject sellInformation;
 
@@ -395,5 +396,33 @@ public class InputManager : MonoBehaviour
     public void disappearSubsidyChoiceMenu()
     {
         subsidyChoiceMenu.SetActive(false);
+    }
+
+    public void giveBribe()
+    {
+        int _amount = (int)birbeChoiceMenu.transform.GetChild(1).GetComponent<Slider>().value; // 입력 개수
+
+        if (_amount > GameManager.getInstance().Money)
+        {
+            showMessage("돈이 부족합니다.");
+        }
+        else
+        {
+            trading.GiveBribe(_amount);
+            showMessage(_amount + "을 뇌물로 바쳤습니다.");
+        }
+
+        disappearBribeChoiceMenu();
+    }
+
+    public void showBribeChoiceMenu()
+    {
+        birbeChoiceMenu.SetActive(true);
+        selectMenu.SetActive(false);
+    }
+
+    public void disappearBribeChoiceMenu()
+    {
+        birbeChoiceMenu.SetActive(false);
     }
 }
