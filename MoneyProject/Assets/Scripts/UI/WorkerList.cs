@@ -10,6 +10,10 @@ public class WorkerList : MonoBehaviour
 
     [SerializeField] private GameObject uiWorker;
     [SerializeField] private List<GameObject> uiWorkers;
+
+    [SerializeField] private Sprite normalWorkerImage;
+    [SerializeField] private Sprite selectWorkerImage;
+
     private Worker selectWorker;
     private int uiWorkerCount;
 
@@ -57,6 +61,13 @@ public class WorkerList : MonoBehaviour
     {
         int index = uiWorkers.IndexOf(worker);
         selectWorker = workers[index];
+        for(int i = 0; i<workers.Count; i++)
+        {
+            uiWorkers[i].GetComponent<UnityEngine.UI.Image>().sprite = normalWorkerImage;
+            workers[i].setShipImage(normalWorkerImage);
+        }
+        uiWorkers[index].GetComponent<UnityEngine.UI.Image>().sprite = selectWorkerImage;
+        selectWorker.setShipImage(selectWorkerImage);
         Debug.Log("selectWorker: " + selectWorker);
         //하이라이트 표시
     }

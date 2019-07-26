@@ -101,6 +101,7 @@ public class Worker : MonoBehaviour
     public STATUS getSTATUS() { return status; }
     public Sprite getWagonImage() { return wagon; }
     public Sprite getShipImage() { return ship; }
+    public void setShipImage(Sprite value) { ship = value; }
     public int GetResource(RTYPE rTYPE)
     {
         for(int i = 0; i < hasResources.Length; i++)
