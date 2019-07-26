@@ -63,6 +63,7 @@ public class WorkerList : MonoBehaviour
             GameObject.Destroy(uiWorkers[index]);
             uiWorkers.Remove(uiWorkers[index]);
             busan.decreaseWorker();
+            UpdateWorkerPosition();
         }
     }
     private void UpdateWorkerPosition()
