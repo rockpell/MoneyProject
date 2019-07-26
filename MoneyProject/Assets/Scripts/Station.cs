@@ -51,7 +51,10 @@ public class Station : MonoBehaviour
         for(int i = 0; i < neighborStations.Length; i++)
         {
             if (neighborStations[i] == station)
-                _result = i;
+            {
+                _result = neighborDistance[i];
+            }
+                
         }
 
         return _result;
