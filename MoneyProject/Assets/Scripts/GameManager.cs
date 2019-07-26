@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text[] resourceStatus;
     [SerializeField] Slider[] statusSlider;
     [SerializeField] Text priceCountText;
+    [SerializeField] Text calendarText;
 
     private int enlightenmentLevel;
     private int dangerLevel;
@@ -20,6 +21,8 @@ public class GameManager : MonoBehaviour
     private int turnCount;
     private int priceChangeLeftTurn; // 시세 변동까지 남은 시간
     [SerializeField] private int priceChangeTurnCount = 3; // 시세 변동 주기
+
+    private Calendar calendar;
 
     private int money;
     private Resource[] resource; // 분리하는게 나을지도?
@@ -45,10 +48,12 @@ public class GameManager : MonoBehaviour
     {
         resource = new Resource[3];
         resource[0] = new Resource(RTYPE.GRAIN);
-        resource[1] = new Resource(RTYPE.SEAFOOD); 
+        resource[1] = new Resource(RTYPE.SEAFOOD);
         resource[2] = new Resource(RTYPE.FABRIC);
 
         workers = GameObject.Find("WorkerListBtn").GetComponent<WorkerList>().getWorkers();
+
+        calendar = new Calendar();
     }
 
     // Update is called once per frame
@@ -59,9 +64,11 @@ public class GameManager : MonoBehaviour
 
     public void nextTurn()
     {
+        ++turnCount;
         --priceChangeLeftTurn;
+        calendar.nextDay();
 
-        if(priceChangeLeftTurn <= 0)
+        if (priceChangeLeftTurn <= 0)
         {
             priceChange();
         }
@@ -93,7 +100,9 @@ public class GameManager : MonoBehaviour
         statusSlider[1].value = dangerLevel;
         statusSlider[2].value = trustLevel;
 
-        priceCountText.text = priceChangeLeftTurn.ToString();
+        priceCountText.text = priceChangeLeftTurn.ToString() + "턴 후 시세 변동";
+
+        calendarText.text = calendar.year.ToString() + "." + calendar.month.ToString() + "." + calendar.day.ToString();
     }
 
     public int EnlightenmentLevel

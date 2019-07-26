@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour
 {
     [SerializeField] private Transform[] boundarys; // right, left, upper, bottom
     [SerializeField] private GameObject selectMenu;
+    [SerializeField] private GameObject messageUI;
     [SerializeField] private List<Station> nowPath;
     [SerializeField] private float zoomScale = 0.5f;
     [SerializeField] private float dragScale = 0.05f;
@@ -192,5 +194,37 @@ public class InputManager : MonoBehaviour
     {
         isMoveMode = true;
         selectMenu.SetActive(false);
+    }
+
+    public void buyResource()
+    {
+        // Worker에게 Resource 사도록 만들어야함
+
+        //nowWorker.getNowStation.   ,,, nowstatcion의 품목의 가격을 알아와서 비교하여 돈이 부족할 경우 showmessage
+    }
+
+    public void sellResource()
+    {
+        //if (nowWorker.) hasResource 확인해서 있을 경우 판매
+        //{
+
+        //}
+        showMessage("물품을 판매하였습니다.");
+    }
+
+    public void cancelChioce()
+    {
+
+    }
+
+    private void showMessage(string text)
+    {
+        messageUI.SetActive(true);
+        messageUI.transform.GetChild(0).GetComponent<Text>().text = text;
+    }
+
+    private void disappearMessage()
+    {
+        messageUI.SetActive(false);
     }
 }
