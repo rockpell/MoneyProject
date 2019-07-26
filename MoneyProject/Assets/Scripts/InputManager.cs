@@ -173,6 +173,11 @@ public class InputManager : MonoBehaviour
                 changeButtonText();
                 isNowBusan = true;
             }
+            else
+            {
+                initChangeButtonText();
+                isNowBusan = false;
+            }
 
             selectMenu.transform.position = _checkPosition + new Vector3(40, 30, 0);
             selectMenu.SetActive(true);
