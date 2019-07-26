@@ -13,7 +13,8 @@ public class InputManager : MonoBehaviour
     [SerializeField] private Text buyButton;
     [SerializeField] private Text sellButton;
 
-
+    [SerializeField] private GameObject buyChoiceMenu;
+    [SerializeField] private GameObject sellChoiceMenu;
 
     [SerializeField] private float zoomScale = 0.5f;
     [SerializeField] private float dragScale = 0.05f;
@@ -146,7 +147,9 @@ public class InputManager : MonoBehaviour
                 nowWorker = null;
                 isMoveMode = false;
                 selectMenu.SetActive(false);
+
                 initChangeButtonText();
+                isNowBusan = false;
             }
         }
 
@@ -158,6 +161,7 @@ public class InputManager : MonoBehaviour
             if (nowWorker.getNowStation().transform.name == "Busan")
             {
                 changeButtonText();
+                isNowBusan = true;
             }
 
             selectMenu.transform.position = _checkPosition + new Vector3(40, 70, 0);
@@ -216,6 +220,7 @@ public class InputManager : MonoBehaviour
     public void buyResource()
     {
         // Worker에게 Resource 사도록 만들어야함
+        int _amount = (int)buyChoiceMenu.transform.GetChild(1).GetComponent<Slider>().value; // 입력 개수
 
         if (isNowBusan) // 부산일 경우 물품 출고
         {
@@ -240,6 +245,8 @@ public class InputManager : MonoBehaviour
         //{
 
         //}
+        int _amount = (int)sellChoiceMenu.transform.GetChild(1).GetComponent<Slider>().value; // 입력 개수
+
         if (isNowBusan)
         {
             showMessage("물품을 적재하였습니다.");
@@ -252,22 +259,25 @@ public class InputManager : MonoBehaviour
     
     public void showBuyChoiceMenu() // 물품 구매 or 물품 출고 버튼 눌렀을때
     {
-
+        buyChoiceMenu.SetActive(true);
+        selectMenu.SetActive(false);
     }
 
     public void disappearBuyChoiceMenu() // 수량 입력하는 화면에서 취소버튼
     {
 
+        buyChoiceMenu.SetActive(false);
     }
 
     public void showSellChoiceMenu() // 물품 판매 or 물품 적재 버튼 눌렀을때
     {
-
+        sellChoiceMenu.SetActive(true);
+        selectMenu.SetActive(false);
     }
 
     public void disappearSellChoiceMenu() // 수량 입력하는 화면에서 취소버튼
     {
-
+        sellChoiceMenu.SetActive(false);
     }
 
     public void showMessage(string text)
@@ -287,11 +297,17 @@ public class InputManager : MonoBehaviour
     {
         buyButton.text = "물품 출고";
         sellButton.text = "물품 적재";
+
+        buyChoiceMenu.transform.GetChild(0).GetComponent<Text>().text = "출고하시겠습니까?";
+        sellChoiceMenu.transform.GetChild(0).GetComponent<Text>().text = "적재하시겠습니까?";
     }
 
     private void initChangeButtonText()
     {
         buyButton.text = "물품 구매";
         sellButton.text = "물품 판매";
+
+        buyChoiceMenu.transform.GetChild(0).GetComponent<Text>().text = "구매하시겠습니까?";
+        sellChoiceMenu.transform.GetChild(0).GetComponent<Text>().text = "판매하시겠습니까?";
     }
 }
