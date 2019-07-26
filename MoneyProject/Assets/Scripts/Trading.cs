@@ -40,6 +40,7 @@ public class Trading
         if ((stationResource.price * count > money) || (stationResource.count < count))
         {
             GameManager.getInstance().TrustLevel -= 10;
+            InputManager.getInstance().showMessage("돈이 부족합니다.");
             return workerResource;
         }
         else
@@ -50,6 +51,8 @@ public class Trading
             GameManager.getInstance().Disbursment += disbursment;
 
             GameManager.getInstance().TrustLevel += 20;
+
+            InputManager.getInstance().showMessage(workerResource.rType + " " + count +  "구매하였습니다.");
 
             return workerResource;
         }

@@ -251,7 +251,7 @@ public class InputManager : MonoBehaviour
                     {
                         trading.purchaseResource(_resource, nowWorker.getNowStation().GetResource, _amount);
                         disappearBuyChoiceMenu();
-                        showMessage(_resource.rType + "을 구매하였습니다." + _amount);
+                        //showMessage(_resource.rType + "을 구매하였습니다." + _amount);
                     }
                 }
             }
