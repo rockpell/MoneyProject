@@ -10,13 +10,13 @@ public class Worker : MonoBehaviour
 
     private Station nowStation; // 초기값 부산으로 설정 필요
     [SerializeField] private List<Station> leftPath;
-    private Resource hasResource;
+    private Resource[] hasResources;   //count -> 물건 산 개수
 
     private int arriveLeftTime; // 남은 턴수
 
     void Start()
     {
-        
+        hasResources = new Resource[3];
     }
 
     void Update()
@@ -98,4 +98,14 @@ public class Worker : MonoBehaviour
     public STATUS getSTATUS() { return status; }
     public Sprite getWagonImage() { return wagon; }
     public Sprite getShipImage() { return ship; }
+    public int GetResource(RTYPE rTYPE)
+    {
+        for(int i = 0; i < hasResources.Length; i++)
+        {
+            if (hasResources[i].rType == rTYPE)
+                return hasResources[i].count;
+
+        }
+        return 0;
+    }
 }
