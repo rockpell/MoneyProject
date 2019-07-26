@@ -15,6 +15,7 @@ public class InputManager : MonoBehaviour
 
     [SerializeField] private GameObject buyChoiceMenu;
     [SerializeField] private GameObject sellChoiceMenu;
+    [SerializeField] private GameObject subsidyChoiceMenu;
 
     [SerializeField] private GameObject sellInformation;
 
@@ -368,8 +369,31 @@ public class InputManager : MonoBehaviour
         selectResourceType = rTYPE;
     }
 
-    //public RTYPE getSelectResourceType()
-    //{
-    //    return selectResourceType;
-    //}
+    public void giveSubsidy()
+    {
+        int _amount = (int)subsidyChoiceMenu.transform.GetChild(1).GetComponent<Slider>().value; // 입력 개수
+
+        if(_amount > GameManager.getInstance().Money)
+        {
+            showMessage("돈이 부족합니다.");
+        }
+        else
+        {
+            trading.GiveSubsidy(_amount, nowWorker.getNowStation());
+            showMessage(_amount + "을 지원하였습니다.");
+        }
+
+        disappearSubsidyChoiceMenu();
+    }
+
+    public void showSubsidyChoiceMenu()
+    {
+        subsidyChoiceMenu.SetActive(true);
+        selectMenu.SetActive(false);
+    }
+
+    public void disappearSubsidyChoiceMenu()
+    {
+        subsidyChoiceMenu.SetActive(false);
+    }
 }
