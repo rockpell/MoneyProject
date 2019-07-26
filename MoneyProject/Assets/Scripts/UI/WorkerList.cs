@@ -92,6 +92,12 @@ public class WorkerList : MonoBehaviour
         {
             index = workers.IndexOf(selectWorker);
 
+            Station station = workers[index].getNowStation();
+            foreach(Station neighbor in station.getNeighbor())
+            {
+                station.GetComponent<HighlightPath>().TurnOffPath(station.name, neighbor.name);
+            }
+
             GameObject.Destroy(selectWorker.gameObject);
             selectWorker.getNowStation().deleteWorker(selectWorker);
             workers.Remove(selectWorker);
