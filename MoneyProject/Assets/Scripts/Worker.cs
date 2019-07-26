@@ -62,6 +62,10 @@ public class Worker : MonoBehaviour
     public void selectWorker() // 마우스로 클릭시 이 함수 호출, 연결된 경로 하이라이트 효과도 여기서 호출
     {
         InputManager.getInstance().selectWorker(this);
+        foreach(Station station in nowStation.getNeighbor())
+        {
+            nowStation.GetComponent<HighlightPath>().TurnOnPath(nowStation.name, station.name);
+        }
     }
 
     private void moveStation()

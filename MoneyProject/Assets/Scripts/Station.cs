@@ -74,4 +74,5 @@ public class Station : MonoBehaviour
         }
         return false;
     }
+    public Station[] getNeighbor() { return neighborStations; }
 }

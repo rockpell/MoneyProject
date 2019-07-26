@@ -153,7 +153,12 @@ public class InputManager : MonoBehaviour
     }
     public void addNowPath(Station station) // 연결 가능한 거점인지 확인한 후에 add 해주는 작업 필요
     {
+        foreach(Station neighbor in nowWorker.getNowStation().getNeighbor())
+        {
+            nowWorker.getNowStation().GetComponent<HighlightPath>().TurnOffPath(nowWorker.getNowStation().name, neighbor.name);
+        }
         nowPath.Add(station);
+
     }
 
     public void initNowPath()
