@@ -1,9 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    //[SerializeField] Text moenyText;
+    //[SerializeField] Text fabricText;
+    //[SerializeField] Text seafoodText;
+    //[SerializeField] Text grainText;
+    [SerializeField] Text[] resourceStatus;
+    [SerializeField] Slider[] statusSlider;
+
     private int enlightenmentLevel;
     private int dangerLevel;
     private int trustLevel;
@@ -37,12 +45,29 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        refreshUI();
     }
 
     public void nextTurn()
     {
 
+    }
+
+    private void refreshUI()
+    {
+        //moenyText.text = money.ToString();
+        //fabricText.text = money.ToString();
+        //seafoodText.text = money.ToString();
+        //grainText.text = money.ToString();
+
+        resourceStatus[0].text = money.ToString();
+        resourceStatus[1].text = money.ToString();
+        resourceStatus[2].text = money.ToString();
+        resourceStatus[3].text = money.ToString();
+
+        statusSlider[0].value = enlightenmentLevel;
+        statusSlider[1].value = dangerLevel;
+        statusSlider[2].value = trustLevel;
     }
 
     public int EnlightenmentLevel
