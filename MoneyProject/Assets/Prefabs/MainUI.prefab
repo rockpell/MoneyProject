@@ -584,6 +584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6425138637676584006}
   - component: {fileID: 3185053406378973149}
+  - component: {fileID: 182742977}
   m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
@@ -662,9 +663,33 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 182742977}
+        m_MethodName: refreshValue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &182742977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101267569048629457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed90c15a664aed740b034f3e801a1b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 4640561232620911900}
 --- !u!1 &185749369711661381
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,7 +738,7 @@ GameObject:
   - component: {fileID: 9148904218457922072}
   - component: {fileID: 4528818149390031840}
   m_Layer: 0
-  m_Name: Text (4)
+  m_Name: TrustLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1049,7 +1074,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 1
   m_WholeNumbers: 1
   m_Value: 0.236
   m_OnValueChanged:
@@ -1466,7 +1491,7 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.252, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1983,7 +2008,7 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.228, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3059,6 +3084,7 @@ MonoBehaviour:
   uiWorkers: []
   busan: {fileID: 0}
   popUpSpace: {fileID: 65342572}
+  employmentCost: 300
 --- !u!1 &317759207273211719
 GameObject:
   m_ObjectHideFlags: 0
@@ -3374,7 +3400,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 1
   m_WholeNumbers: 1
   m_Value: 0.252
   m_OnValueChanged:
@@ -3760,7 +3786,7 @@ GameObject:
   - component: {fileID: 317759207535866228}
   - component: {fileID: 317759207535866231}
   m_Layer: 0
-  m_Name: IlluminationRating
+  m_Name: EnlightmentRating
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4338,8 +4364,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 317759207123549456}
-        m_MethodName: nextTurnMove
+      - m_Target: {fileID: 0}
+        m_MethodName: nextTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4697,7 +4723,7 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.236, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5471,7 +5497,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5624,7 +5650,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6103,7 +6129,7 @@ GameObject:
   - component: {fileID: 4848466158022806402}
   - component: {fileID: 8490753537712098004}
   m_Layer: 0
-  m_Name: Text (2)
+  m_Name: EnlightmentLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6446,7 +6472,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2027037783567107625}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: buyResource
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &2042951372960618840
@@ -6797,6 +6834,7 @@ GameObject:
   - component: {fileID: 5467394146632336087}
   - component: {fileID: 5531113925023543641}
   - component: {fileID: 190820768453771331}
+  - component: {fileID: 1208070512}
   m_Layer: 0
   m_Name: ResultPanel
   m_TagString: Untagged
@@ -6861,6 +6899,23 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &1208070512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861436815951589289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d7964861b127540915884f8511cd98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profitValue: {fileID: 5799059694634309537}
+  disbursmentValue: {fileID: 8460858177192650156}
+  enlightmentValue: {fileID: 5381055564811259467}
+  dangerValue: {fileID: 4228836475823249160}
+  trustValue: {fileID: 8967546570102190424}
 --- !u!1 &2870084641556452999
 GameObject:
   m_ObjectHideFlags: 0
@@ -6973,7 +7028,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7331,7 +7386,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5670218392407664574}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: giveSubsidy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &3921892284138701343
@@ -7499,7 +7565,7 @@ GameObject:
   - component: {fileID: 4711980059994884806}
   - component: {fileID: 6237205431978401815}
   m_Layer: 0
-  m_Name: Text (3)
+  m_Name: DangerLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7578,7 +7644,7 @@ GameObject:
   - component: {fileID: 2570738061955612024}
   - component: {fileID: 8460858177192650156}
   m_Layer: 0
-  m_Name: ValueText (1)
+  m_Name: DisbursmentValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7657,7 +7723,7 @@ GameObject:
   - component: {fileID: 8640442895360322817}
   - component: {fileID: 5799059694634309537}
   m_Layer: 0
-  m_Name: ValueText
+  m_Name: ProfitValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8088,7 +8154,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7151556838362592570}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: disappearSellChoiceMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &5322381151475323706
@@ -8234,7 +8311,7 @@ GameObject:
   - component: {fileID: 8949275221270774972}
   - component: {fileID: 5381055564811259467}
   m_Layer: 0
-  m_Name: ValueText (2)
+  m_Name: EnlightmentValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8498,7 +8575,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1230385716374441941}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: showSubsidyChoiceMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &6085145531488468758
@@ -8619,7 +8707,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5958495617980278432}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: disappearBuyChoiceMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &6262231930549096952
@@ -8740,7 +8839,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 559011802579445294}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: showSellChoiceMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &6264547807841713258
@@ -8776,7 +8886,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8943,7 +9053,7 @@ GameObject:
   - component: {fileID: 1349410402412226172}
   - component: {fileID: 4228836475823249160}
   m_Layer: 0
-  m_Name: ValueText (3)
+  m_Name: DangerValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9386,7 +9496,7 @@ GameObject:
   - component: {fileID: 9038341392934313051}
   - component: {fileID: 8967546570102190424}
   m_Layer: 0
-  m_Name: ValueText (4)
+  m_Name: TrustValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9463,6 +9573,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1970077245655045860}
   - component: {fileID: 8335865215701711274}
+  - component: {fileID: 1553472722}
   m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
@@ -9541,9 +9652,33 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1553472722}
+        m_MethodName: refreshValue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1553472722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216456209550391761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed90c15a664aed740b034f3e801a1b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 8560864685987247854}
 --- !u!1 &7224163793129787666
 GameObject:
   m_ObjectHideFlags: 0
@@ -9556,7 +9691,7 @@ GameObject:
   - component: {fileID: 912356712930259678}
   - component: {fileID: 6074729393128119927}
   m_Layer: 0
-  m_Name: Text
+  m_Name: ProfitLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10030,7 +10165,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8997974090595660449}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: sellResource
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &8071786136094844052
@@ -10151,7 +10297,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5710976943895839693}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: showBuyChoiceMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &8128561066314142261
@@ -10166,7 +10323,7 @@ GameObject:
   - component: {fileID: 1158323941316174193}
   - component: {fileID: 8432275432192290573}
   m_Layer: 0
-  m_Name: Text (1)
+  m_Name: DisbursmentLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10430,7 +10587,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9187106837473752377}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: SetMoveMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &8262622745182771539
@@ -10630,7 +10798,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8867229779328948233}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: disappearSubsidyChoiceMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &8372539230902681705
@@ -10667,7 +10846,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 3.850006, y: -1.0999985}
   m_SizeDelta: {x: -40, y: -26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3868824561134626023
@@ -10861,7 +11040,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11224,7 +11403,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11347,6 +11526,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1084513229}
     m_Modifications:
+    - target: {fileID: -4415604839199870260, guid: 2ac28a96be9e5ec4993102b8f389d4d5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 68551026}
+    - target: {fileID: -4415604839199870260, guid: 2ac28a96be9e5ec4993102b8f389d4d5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: selectUIWorker
+      objectReference: {fileID: 0}
+    - target: {fileID: -4415604839199870260, guid: 2ac28a96be9e5ec4993102b8f389d4d5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1476086693429555836}
+    - target: {fileID: -4415604839199870260, guid: 2ac28a96be9e5ec4993102b8f389d4d5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2049794958853522913, guid: 2ac28a96be9e5ec4993102b8f389d4d5,
         type: 3}
       propertyPath: m_Name
@@ -11457,37 +11656,17 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: -4415604839199870260, guid: 2ac28a96be9e5ec4993102b8f389d4d5,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 68551026}
-    - target: {fileID: -4415604839199870260, guid: 2ac28a96be9e5ec4993102b8f389d4d5,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: selectUIWorker
-      objectReference: {fileID: 0}
-    - target: {fileID: -4415604839199870260, guid: 2ac28a96be9e5ec4993102b8f389d4d5,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 1476086693429555836}
-    - target: {fileID: -4415604839199870260, guid: 2ac28a96be9e5ec4993102b8f389d4d5,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ac28a96be9e5ec4993102b8f389d4d5, type: 3}
---- !u!224 &4776299026440947677 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5352134574234923072, guid: 2ac28a96be9e5ec4993102b8f389d4d5,
-    type: 3}
-  m_PrefabInstance: {fileID: 580481259568199581}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1476086693429555836 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2049794958853522913, guid: 2ac28a96be9e5ec4993102b8f389d4d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 580481259568199581}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &4776299026440947677 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5352134574234923072, guid: 2ac28a96be9e5ec4993102b8f389d4d5,
     type: 3}
   m_PrefabInstance: {fileID: 580481259568199581}
   m_PrefabAsset: {fileID: 0}

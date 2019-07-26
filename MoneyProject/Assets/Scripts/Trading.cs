@@ -61,21 +61,21 @@ public class Trading
         if(station.gameObject.name != "Sanghai")
         {
             GameManager.getInstance().Money -= subsidyAmount;
-            GameManager.getInstance().DangerLevel += subsidyAmount / 10000;
-            GameManager.getInstance().EnlightenmentLevel -= subsidyAmount / 25000;
+            GameManager.getInstance().DangerLevel += (subsidyAmount / 100);
+            GameManager.getInstance().EnlightenmentLevel -= (subsidyAmount / 250);
         }
         else
         {
             GameManager.getInstance().Money -= subsidyAmount;
-            GameManager.getInstance().EnlightenmentLevel += subsidyAmount / 20000;
-            GameManager.getInstance().DangerLevel += subsidyAmount / 25000;
+            GameManager.getInstance().EnlightenmentLevel += subsidyAmount/200;
+            GameManager.getInstance().DangerLevel += (subsidyAmount / 250);
         }
     }
     //뇌물 전달 시 위험도가 크게 감소한다.
     public void GiveBribe(int bribeAmount)
     {
         GameManager.getInstance().Money -= bribeAmount;
-        GameManager.getInstance().DangerLevel -= bribeAmount / 10000;
+        GameManager.getInstance().DangerLevel -= (bribeAmount / 50);
     }
 
     public void storeResource(Resource workerResource, Resource stationResource, int amount)
