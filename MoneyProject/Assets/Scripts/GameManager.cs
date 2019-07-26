@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text priceCountText;
     [SerializeField] Text calendarText;
 
+    [SerializeField] GameObject resultPanel;
+
+    private bool isTouchable = true;
+
     private int enlightenmentLevel;
     private int dangerLevel;
     private int trustLevel;
@@ -79,6 +83,15 @@ public class GameManager : MonoBehaviour
         {
             worker.progressTurn();
         }
+        resultPanel.SetActive(true);
+        IsTouchable = false;
+        Invoke("disappearResultPanel", 2f);
+    }
+
+    private void disappearResultPanel()
+    {
+        resultPanel.SetActive(false);
+        IsTouchable = true;
     }
 
     private void priceChange() // 가격 변동 적용 해줘야함
@@ -136,5 +149,11 @@ public class GameManager : MonoBehaviour
     {
         get { return money; }
         set { money = value; }
+    }
+
+    public bool IsTouchable
+    {
+        get { return isTouchable; }
+        set { isTouchable = value; }
     }
 }

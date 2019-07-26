@@ -20652,6 +20652,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1204626908}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1208070508 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2861436815951589289, guid: 44fe52734b2eb034c935a30d173e3942,
+    type: 3}
+  m_PrefabInstance: {fileID: 317759207123549454}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1212514591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32879,6 +32885,7 @@ MonoBehaviour:
   - {fileID: 1946708646}
   priceCountText: {fileID: 2131811680}
   calendarText: {fileID: 883532441}
+  resultPanel: {fileID: 1208070508}
   priceChangeTurnCount: 3
 --- !u!4 &1872194022
 Transform:

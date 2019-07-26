@@ -58,7 +58,8 @@ public class InputManager : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Debug.Log(checkObject());
+            if(GameManager.getInstance().IsTouchable)
+                Debug.Log(checkObject());
         }
         if(Input.GetMouseButtonDown(1))
         {
