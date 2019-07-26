@@ -96,6 +96,7 @@ MonoBehaviour:
   status: 0
   ship: {fileID: 21300000, guid: 1ceb985cd4516cb47a5c81bafc7b3242, type: 3}
   wagon: {fileID: 21300000, guid: a8ce0edc8ca94be4ab17c454ce7c7cbc, type: 3}
+  leftPath: []
 --- !u!61 &-451677279374775283
 BoxCollider2D:
   m_ObjectHideFlags: 0

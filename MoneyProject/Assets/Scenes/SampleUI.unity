@@ -254,6 +254,7 @@ MonoBehaviour:
   - {fileID: 821783323}
   neighborDistance: 02000000
   workerSpace: {fileID: 655323237}
+  workerSpaceRange: 0
 --- !u!212 &391153490
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -458,6 +459,7 @@ MonoBehaviour:
   - {fileID: 1056774488}
   neighborDistance: 0200000001000000
   workerSpace: {fileID: 1657018784}
+  workerSpaceRange: 0
 --- !u!212 &821783324
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -647,6 +649,7 @@ MonoBehaviour:
   - {fileID: 821783323}
   neighborDistance: 00000000
   workerSpace: {fileID: 509819663}
+  workerSpaceRange: 0
 --- !u!212 &1056774489
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -920,6 +923,53 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 317759207123549454}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1872194020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1872194022}
+  - component: {fileID: 1872194021}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1872194021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872194020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89399c32b4c8346498dbd2bb33a24116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceStatus: []
+  statusSlider: []
+  priceCountText: {fileID: 0}
+  priceChangeTurnCount: 2
+--- !u!4 &1872194022
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872194020}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &317759207123549454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1080,6 +1130,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4503770670838383090, guid: 44fe52734b2eb034c935a30d173e3942,
+        type: 3}
+      propertyPath: m_Name
+      value: WorkerListPopUp
+      objectReference: {fileID: 0}
     - target: {fileID: 1877017595, guid: 44fe52734b2eb034c935a30d173e3942, type: 3}
       propertyPath: m_SizeDelta.y
       value: 60
@@ -1091,31 +1146,6 @@ PrefabInstance:
     - target: {fileID: 1877017595, guid: 44fe52734b2eb034c935a30d173e3942, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 730
-      objectReference: {fileID: 0}
-    - target: {fileID: 868672169, guid: 44fe52734b2eb034c935a30d173e3942, type: 3}
-      propertyPath: m_Text
-      value: "\uACE0\uC6A9"
-      objectReference: {fileID: 0}
-    - target: {fileID: 868672169, guid: 44fe52734b2eb034c935a30d173e3942, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 868672169, guid: 44fe52734b2eb034c935a30d173e3942, type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 868672169, guid: 44fe52734b2eb034c935a30d173e3942, type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 868672169, guid: 44fe52734b2eb034c935a30d173e3942, type: 3}
-      propertyPath: m_FontData.m_FontStyle
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4503770670838383090, guid: 44fe52734b2eb034c935a30d173e3942,
-        type: 3}
-      propertyPath: m_Name
-      value: WorkerListPopUp
       objectReference: {fileID: 0}
     - target: {fileID: 708586501, guid: 44fe52734b2eb034c935a30d173e3942, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1146,6 +1176,26 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 867584961, guid: 44fe52734b2eb034c935a30d173e3942, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 868672169, guid: 44fe52734b2eb034c935a30d173e3942, type: 3}
+      propertyPath: m_Text
+      value: "\uACE0\uC6A9"
+      objectReference: {fileID: 0}
+    - target: {fileID: 868672169, guid: 44fe52734b2eb034c935a30d173e3942, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 868672169, guid: 44fe52734b2eb034c935a30d173e3942, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 868672169, guid: 44fe52734b2eb034c935a30d173e3942, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 868672169, guid: 44fe52734b2eb034c935a30d173e3942, type: 3}
       propertyPath: m_FontData.m_FontStyle
       value: 1
       objectReference: {fileID: 0}
