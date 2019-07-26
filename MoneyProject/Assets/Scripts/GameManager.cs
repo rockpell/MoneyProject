@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     private int money;
     private Resource[] resource; // 분리하는게 나을지도?
 
+    private List<Worker> workers;
+
     private static GameManager instance;
 
     public static GameManager getInstance()
@@ -45,6 +47,8 @@ public class GameManager : MonoBehaviour
         resource[0] = new Resource(RTYPE.GRAIN);
         resource[1] = new Resource(RTYPE.SEAFOOD); 
         resource[2] = new Resource(RTYPE.FABRIC);
+
+        workers = GameObject.Find("WorkerListBtn").GetComponent<WorkerList>().getWorkers();
     }
 
     // Update is called once per frame
@@ -60,6 +64,11 @@ public class GameManager : MonoBehaviour
         if(priceChangeLeftTurn <= 0)
         {
             priceChange();
+        }
+
+        foreach (Worker worker in workers)
+        {
+            worker.progressTurn();
         }
     }
 
