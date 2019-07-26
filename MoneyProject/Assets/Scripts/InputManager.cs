@@ -61,9 +61,11 @@ public class InputManager : MonoBehaviour
         }
         else if (Input.GetMouseButton(1))
         {
-            Vector3 _drag = (Input.mousePosition - dragPivot) * dragScale * 0.01f;
+            Vector3 _drag = (Input.mousePosition - dragPivot) * dragScale * 0.3f;
 
-            Camera.main.transform.position += _drag;
+            //Camera.main.transform.position -= _drag;
+            Camera.main.transform.Translate(_drag);
+            dragPivot = Input.mousePosition;
         }
 
         float x = Mathf.Clamp(Camera.main.transform.position.x, xMin, xMax);
@@ -72,7 +74,7 @@ public class InputManager : MonoBehaviour
 
         Camera.main.orthographicSize -= Input.mouseScrollDelta.y * zoomScale;
         if (Camera.main.orthographicSize > 5) Camera.main.orthographicSize = 5;
-        else if (Camera.main.orthographicSize < 1) Camera.main.orthographicSize = 1;
+        else if (Camera.main.orthographicSize < 2) Camera.main.orthographicSize = 2;
 
         //Debug.Log("mode: " + isMoveMode + "   nowWorker: " + nowWorker);
     }
