@@ -12,12 +12,15 @@ public class ResultPanel : MonoBehaviour
 
     void Start()
     {
-        
+        UpdateValue();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateValue()
     {
-        
+        profitValue.text = GameManager.getInstance().Profit.ToString();
+        disbursmentValue.text = GameManager.getInstance().Disbursment.ToString();
+        enlightmentValue.text = GameManager.getInstance().EnlightenmentLevel.ToString();
+        dangerValue.text = GameManager.getInstance().DangerLevel.ToString();
+        trustValue.text = GameManager.getInstance().TrustLevel.ToString();
     }
 }

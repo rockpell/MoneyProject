@@ -104,6 +104,7 @@ public class GameManager : MonoBehaviour, IObserverSubject
             worker.progressTurn();
         }
         resultPanel.SetActive(true);
+        resultPanel.GetComponent<ResultPanel>().UpdateValue();
         IsTouchable = false;
         Invoke("disappearResultPanel", 2f);
     }

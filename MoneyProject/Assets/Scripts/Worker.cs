@@ -17,6 +17,9 @@ public class Worker : MonoBehaviour
     void Start()
     {
         hasResources = new Resource[3];
+        hasResources[0] = new Resource(RTYPE.FABRIC);
+        hasResources[1] = new Resource(RTYPE.GRAIN);
+        hasResources[2] = new Resource(RTYPE.SEAFOOD);
     }
 
     void Update()
