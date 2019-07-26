@@ -71,6 +71,12 @@ public class Trading : MonoBehaviour
             GameManager.getInstance().DangerLevel += subsidyAmount / 25000;
         }
     }
+    //뇌물 전달 시 위험도가 크게 감소한다.
+    public void GiveBribe(int bribeAmount)
+    {
+        GameManager.getInstance().Money -= bribeAmount;
+        GameManager.getInstance().DangerLevel -= bribeAmount / 10000;
+    }
     void Update()
     {
         
