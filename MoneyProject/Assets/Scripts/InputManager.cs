@@ -248,6 +248,7 @@ public class InputManager : MonoBehaviour
                     if (_resource.rType == nowWorker.getNowStation().GetResource.rType)
                     {
                         trading.purchaseResource(_resource, nowWorker.getNowStation().GetResource, _amount);
+                        disappearBuyChoiceMenu();
                         showMessage(_resource.rType + "을 구매하였습니다." + _amount);
                     }
                 }
@@ -289,7 +290,7 @@ public class InputManager : MonoBehaviour
             if (_workerResource != null && _stationResource != null)
             {
                 trading.sellingResource(_workerResource, _stationResource, _amount);
-
+                disappearSellChoiceMenu();
                 showMessage(_workerResource.rType + "물품을 판매하였습니다." + _amount);
             }
         }
@@ -303,7 +304,6 @@ public class InputManager : MonoBehaviour
 
     public void disappearBuyChoiceMenu() // 수량 입력하는 화면에서 취소버튼
     {
-
         buyChoiceMenu.SetActive(false);
     }
 
