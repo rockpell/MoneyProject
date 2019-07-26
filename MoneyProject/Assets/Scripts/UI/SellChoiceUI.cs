@@ -18,9 +18,9 @@ public class SellChoiceUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        fabricButton.interactable = false;
-        seafoodButton.interactable = false;
-        grainButton.interactable = false;
+        fabricButton.interactable = true;
+        seafoodButton.interactable = true;
+        grainButton.interactable = true;
     }
 
     // Update is called once per frame
@@ -35,30 +35,33 @@ public class SellChoiceUI : MonoBehaviour
         seafoodCount = worker.GetResource(RTYPE.SEAFOOD);
         grainCount = worker.GetResource(RTYPE.GRAIN);
 
-        if(fabricCount > 0)
-        {
-            fabricButton.interactable = true;
-        }
-        if(seafoodCount > 0)
-        {
-            seafoodButton.interactable = true;
-        }
-        if(grainCount > 0)
-        {
-            grainButton.interactable = true;
-        }
+        //if(fabricCount > 0)
+        //{
+        //    fabricButton.interactable = true;
+        //}
+        //if(seafoodCount > 0)
+        //{
+        //    seafoodButton.interactable = true;
+        //}
+        //if(grainCount > 0)
+        //{
+        //    grainButton.interactable = true;
+        //}
     }
 
     public void setSliderFabricMaxValue()
     {
         slider.maxValue = fabricCount;
+        InputManager.getInstance().setSelectResourceType(RTYPE.FABRIC);
     }
     public void setSliderSeafoodMaxValue()
     {
         slider.maxValue = seafoodCount;
+        InputManager.getInstance().setSelectResourceType(RTYPE.SEAFOOD);
     }
     public void setSliderGrainMaxValue()
     {
         slider.maxValue = grainCount;
+        InputManager.getInstance().setSelectResourceType(RTYPE.GRAIN);
     }
 }

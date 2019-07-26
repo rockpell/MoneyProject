@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour, IObserverSubject
 
     private Calendar calendar;
 
-    private int money = 100;
+    private int money = 10000;
     private int profit = 0;
     private int disbursment = 0;
     private Resource[] resource; // 분리하는게 나을지도?

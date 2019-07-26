@@ -16,10 +16,15 @@ public class InputManager : MonoBehaviour
     [SerializeField] private GameObject buyChoiceMenu;
     [SerializeField] private GameObject sellChoiceMenu;
 
+    [SerializeField] private GameObject sellInformation;
+
     [SerializeField] private float zoomScale = 0.5f;
     [SerializeField] private float dragScale = 0.05f;
 
     private Worker nowWorker;
+    private Trading trading;
+
+    private RTYPE selectResourceType;
 
     private Vector3 dragPivot;
     private float xMin, xMax;
@@ -51,6 +56,8 @@ public class InputManager : MonoBehaviour
         xMin = boundarys[1].position.x;
         yMax = boundarys[2].position.y;
         yMin = boundarys[3].position.y;
+
+        trading = new Trading();
     }
 
     // Update is called once per frame
@@ -235,7 +242,15 @@ public class InputManager : MonoBehaviour
             }
             else
             {
-
+                Resource[] resources = nowWorker.GetResources;
+                foreach (Resource _resource in resources)
+                {
+                    if (_resource.rType == nowWorker.getNowStation().GetResource.rType)
+                    {
+                        trading.purchaseResource(_resource, nowWorker.getNowStation().GetResource, _amount);
+                        showMessage(_resource.rType + "을 구매하였습니다." + _amount);
+                    }
+                }
             }
         }
     }
@@ -246,7 +261,7 @@ public class InputManager : MonoBehaviour
         //{
 
         //}
-        int _amount = (int)sellChoiceMenu.transform.GetChild(1).GetComponent<Slider>().value; // 입력 개수
+        int _amount = (int)sellChoiceMenu.transform.GetChild(2).GetComponent<Slider>().value; // 입력 개수
 
         if (isNowBusan)
         {
@@ -254,7 +269,29 @@ public class InputManager : MonoBehaviour
         }
         else
         {
-            showMessage("물품을 판매하였습니다.");
+            Resource[] resources = nowWorker.GetResources;
+            Resource _workerResource = null, _stationResource = null;
+            foreach (Resource _resource in resources)
+            {
+                if (_resource.rType == selectResourceType)
+                {
+                    _workerResource = _resource;
+                }
+            }
+            foreach(Resource _resource in nowWorker.getNowStation().GetResources)
+            {
+                if (_resource.rType == selectResourceType)
+                {
+                    _stationResource = _resource;
+                }
+            }
+
+            if (_workerResource != null && _stationResource != null)
+            {
+                trading.sellingResource(_workerResource, _stationResource, _amount);
+
+                showMessage(_workerResource.rType + "물품을 판매하였습니다." + _amount);
+            }
         }
     }
     
@@ -313,4 +350,26 @@ public class InputManager : MonoBehaviour
         buyChoiceMenu.transform.GetChild(0).GetComponent<Text>().text = "구매하시겠습니까?";
         sellChoiceMenu.transform.GetChild(0).GetComponent<Text>().text = "판매하시겠습니까?";
     }
+
+    public void showSellInformation(Resource[] resource, Vector3 position)
+    {
+        sellInformation.SetActive(true);
+        sellInformation.GetComponent<SellInformation>().sycnResouceInformation(resource);
+        sellInformation.transform.position = position;
+    }
+
+    public void disappearSellInformation()
+    {
+        sellInformation.SetActive(false);
+    }
+
+    public void setSelectResourceType(RTYPE rTYPE)
+    {
+        selectResourceType = rTYPE;
+    }
+
+    //public RTYPE getSelectResourceType()
+    //{
+    //    return selectResourceType;
+    //}
 }

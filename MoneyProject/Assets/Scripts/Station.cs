@@ -138,4 +138,14 @@ public class Station : MonoBehaviour
     {
         get { return purchaseResources; }
     }
+
+    void OnMouseOver()
+    {
+        InputManager.getInstance().showSellInformation(purchaseResources, Input.mousePosition);
+    }
+
+    private void OnMouseExit()
+    {
+        InputManager.getInstance().disappearSellInformation();
+    }
 }

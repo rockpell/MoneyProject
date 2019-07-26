@@ -9722,6 +9722,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 578402163}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &585669964 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9011355540622604780, guid: 44fe52734b2eb034c935a30d173e3942,
+    type: 3}
+  m_PrefabInstance: {fileID: 317759207123549454}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &588850337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14307,6 +14313,7 @@ MonoBehaviour:
   sellButton: {fileID: 1032283242}
   buyChoiceMenu: {fileID: 317759207123549458}
   sellChoiceMenu: {fileID: 317759207123549457}
+  sellInformation: {fileID: 585669964}
   zoomScale: 0.5
   dragScale: 0.05
 --- !u!4 &862887013
