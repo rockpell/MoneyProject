@@ -117,6 +117,7 @@ public class InputManager : MonoBehaviour
                     {
                         if (nowPath.Count != 0)
                         {
+                            UpdatePath();
                             savePath();
                             initNowPath();
                         }
@@ -135,6 +136,7 @@ public class InputManager : MonoBehaviour
                 {
                     if (nowPath.Count != 0)
                     {
+                        UpdatePath();
                         savePath();
                         initNowPath();
                     }
@@ -157,9 +159,9 @@ public class InputManager : MonoBehaviour
         }
         return select;
     }
-    public void addNowPath(Station station) // 연결 가능한 거점인지 확인한 후에 add 해주는 작업 필요
+    private void UpdatePath()
     {
-        if(nowPath.Count == 0)
+        if (nowPath.Count == 0)
         {
             foreach (Station neighbor in nowWorker.getNowStation().getNeighbor())
                 nowWorker.getNowStation().GetComponent<HighlightPath>().TurnOffPath(nowWorker.getNowStation().name, neighbor.name);
@@ -171,6 +173,10 @@ public class InputManager : MonoBehaviour
                 nowPath[nowPath.Count - 1].GetComponent<HighlightPath>().TurnOffPath(nowPath[nowPath.Count - 1].name, neighbor.name);
             }
         }
+    }
+    public void addNowPath(Station station) // 연결 가능한 거점인지 확인한 후에 add 해주는 작업 필요
+    {
+        UpdatePath();
         nowPath.Add(station);
         foreach (Station neighbor in station.getNeighbor())
         {

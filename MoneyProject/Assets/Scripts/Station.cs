@@ -10,8 +10,9 @@ public class Station : MonoBehaviour
     [SerializeField] private GameObject workerSpace;
     [SerializeField] private List<Worker> workers;
 
-    [SerializeField] private RTYPE hasResourceType;
-    //[SerializeField] private int price; // 가격은 품목 통일 하는게 좋을듯
+    [SerializeField] private Resource hasResource;
+    [SerializeField] private int price;
+    [SerializeField] private float priceChangeValue;
     [SerializeField] private float workerSpaceRange;
 
     private bool isSeaprot;
@@ -34,6 +35,11 @@ public class Station : MonoBehaviour
     void Update()
     {
         
+    }
+    public void updatePrice()
+    {
+        //여기서 가격 변동 조절
+        Random.Range((int)price * (1 - priceChangeValue), (int)price * (1 + priceChangeValue));
     }
     public void updatePosition()
     {
@@ -77,4 +83,8 @@ public class Station : MonoBehaviour
         return false;
     }
     public Station[] getNeighbor() { return neighborStations; }
+    public int Price
+    {
+        get { return price; }
+    }
 }
