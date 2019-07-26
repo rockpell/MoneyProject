@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
     private void priceChange() // 가격 변동 적용 해줘야함
     {
         priceChangeLeftTurn = priceChangeTurnCount;
+        InputManager.getInstance().showMessage("시세가 변동됩니다.");
     }
 
     private void refreshUI()

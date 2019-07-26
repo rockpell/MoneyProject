@@ -23,6 +23,7 @@ public class InputManager : MonoBehaviour
     private float yMin, yMax;
 
     private bool isMoveMode = false;
+    private bool isNowBusan = false;
 
     private static InputManager instance;
     public static InputManager getInstance()
@@ -125,9 +126,6 @@ public class InputManager : MonoBehaviour
                     }
                     select = raycast.collider.gameObject;
                     select.GetComponent<Worker>().selectWorker();
-
-                    //selectMenu.transform.position = _checkPosition;
-                    //selectMenu.SetActive(true);
                 }
             }
             else
@@ -146,6 +144,7 @@ public class InputManager : MonoBehaviour
                 nowWorker = null;
                 isMoveMode = false;
                 selectMenu.SetActive(false);
+                initChangeButtonText();
             }
         }
 
@@ -162,6 +161,7 @@ public class InputManager : MonoBehaviour
             selectMenu.transform.position = _checkPosition + new Vector3(40, 70, 0);
             selectMenu.SetActive(true);
         }
+
         return select;
     }
     private void UpdatePath()
@@ -215,7 +215,21 @@ public class InputManager : MonoBehaviour
     {
         // Worker에게 Resource 사도록 만들어야함
 
-        //nowWorker.getNowStation.   ,,, nowstatcion의 품목의 가격을 알아와서 비교하여 돈이 부족할 경우 showmessage
+        if (isNowBusan) // 부산일 경우 물품 출고
+        {
+            showMessage("출고 할 물품이 없습니다.");
+        }
+        else
+        {
+            if (nowWorker.getNowStation().Price > GameManager.getInstance().Money)
+            {
+                showMessage("돈이 부족합니다.");
+            }
+            else
+            {
+
+            }
+        }
     }
 
     public void sellResource()
@@ -224,18 +238,22 @@ public class InputManager : MonoBehaviour
         //{
 
         //}
-        showMessage("물품을 판매하였습니다.");
+        if (isNowBusan)
+        {
+            showMessage("물품을 적재하였습니다.");
+        }
+        else
+        {
+            showMessage("물품을 판매하였습니다.");
+        }
     }
 
-    public void cancelChioce()
-    {
-
-    }
-
-    private void showMessage(string text)
+    public void showMessage(string text)
     {
         messageUI.SetActive(true);
         messageUI.transform.GetChild(0).GetComponent<Text>().text = text;
+
+        Invoke("disappearMessage", 2f);
     }
 
     private void disappearMessage()
