@@ -13,6 +13,8 @@ public class InputManager : MonoBehaviour
     [SerializeField] private Text buyButton;
     [SerializeField] private Text sellButton;
 
+
+
     [SerializeField] private float zoomScale = 0.5f;
     [SerializeField] private float dragScale = 0.05f;
 
@@ -24,6 +26,8 @@ public class InputManager : MonoBehaviour
 
     private bool isMoveMode = false;
     private bool isNowBusan = false;
+
+    private int choiceAmount = 1;
 
     private static InputManager instance;
     public static InputManager getInstance()
@@ -62,8 +66,6 @@ public class InputManager : MonoBehaviour
         else if (Input.GetMouseButton(1))
         {
             Vector3 _drag = (Input.mousePosition - dragPivot) * dragScale * 0.3f;
-
-            //Camera.main.transform.position -= _drag;
             Camera.main.transform.Translate(_drag);
             dragPivot = Input.mousePosition;
         }
@@ -75,8 +77,6 @@ public class InputManager : MonoBehaviour
         Camera.main.orthographicSize -= Input.mouseScrollDelta.y * zoomScale;
         if (Camera.main.orthographicSize > 5) Camera.main.orthographicSize = 5;
         else if (Camera.main.orthographicSize < 2) Camera.main.orthographicSize = 2;
-
-        //Debug.Log("mode: " + isMoveMode + "   nowWorker: " + nowWorker);
     }
 
     private GameObject checkObject()
@@ -249,13 +249,33 @@ public class InputManager : MonoBehaviour
             showMessage("물품을 판매하였습니다.");
         }
     }
+    
+    public void showBuyChoiceMenu() // 물품 구매 or 물품 출고 버튼 눌렀을때
+    {
+
+    }
+
+    public void disappearBuyChoiceMenu() // 수량 입력하는 화면에서 취소버튼
+    {
+
+    }
+
+    public void showSellChoiceMenu() // 물품 판매 or 물품 적재 버튼 눌렀을때
+    {
+
+    }
+
+    public void disappearSellChoiceMenu() // 수량 입력하는 화면에서 취소버튼
+    {
+
+    }
 
     public void showMessage(string text)
     {
         messageUI.SetActive(true);
         messageUI.transform.GetChild(0).GetComponent<Text>().text = text;
 
-        Invoke("disappearMessage", 2f);
+        Invoke("disappearMessage", 1.5f);
     }
 
     private void disappearMessage()
