@@ -130,8 +130,7 @@ public class GameManager : MonoBehaviour, IObserverSubject
         money -= workers.Count * salaryAmount;
         if(originMoney*0.1f > money)
         {
-            //여기서 게임 종료 함수 넣으면 됨
-            Debug.Log("파산!");
+            EndGame.getInstance().selectEnding(ENDING.BANKRUPTCY);
         }
         else
         {
