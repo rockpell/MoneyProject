@@ -362,7 +362,7 @@ public class InputManager : MonoBehaviour
     {
         sellInformation.SetActive(true);
         sellInformation.GetComponent<SellInformation>().sycnResouceInformation(resource);
-        sellInformation.transform.position = position;
+        sellInformation.transform.position = position + new Vector3(0, 35, 0);
     }
 
     public void disappearSellInformation()
