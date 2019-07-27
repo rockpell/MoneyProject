@@ -26,7 +26,7 @@ public class Trading
             GameManager.getInstance().Money += profit;
             GameManager.getInstance().Profit += profit;
 
-            GameManager.getInstance().TrustLevel += 20;
+            GameManager.getInstance().TrustLevel += 10;
 
             stationResource.count += count;
             return workerResource;
@@ -50,7 +50,7 @@ public class Trading
             GameManager.getInstance().Money -= disbursment;
             GameManager.getInstance().Disbursment += disbursment;
 
-            GameManager.getInstance().TrustLevel += 20;
+            GameManager.getInstance().TrustLevel += 10;
 
             InputManager.getInstance().showMessage(workerResource.rType + " " + count +  "구매하였습니다.");
 
@@ -66,6 +66,7 @@ public class Trading
             GameManager.getInstance().Money -= subsidyAmount;
             GameManager.getInstance().DangerLevel += (subsidyAmount / 100);
             GameManager.getInstance().EnlightenmentLevel -= (subsidyAmount / 250);
+            GameManager.getInstance().TrustLevel -= 20;
         }
         else
         {
