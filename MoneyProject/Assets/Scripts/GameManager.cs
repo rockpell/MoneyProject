@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour, IObserverSubject
 
     [SerializeField] Sprite idleStaionImage;
     [SerializeField] Sprite workerStaionImage;
+    [SerializeField] Sprite sanghaiStaionImage;
 
     private bool isTouchable = true;
 
@@ -274,5 +275,10 @@ public class GameManager : MonoBehaviour, IObserverSubject
     public Sprite getWorkerStationImage()
     {
         return workerStaionImage;
+    }
+
+    public Sprite getSanghaiStationImage()
+    {
+        return sanghaiStaionImage;
     }
 }
