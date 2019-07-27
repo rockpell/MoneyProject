@@ -71,7 +71,7 @@ public class Trading
         {
             GameManager.getInstance().Money -= subsidyAmount;
             GameManager.getInstance().EnlightenmentLevel += subsidyAmount/200;
-            GameManager.getInstance().DangerLevel += (subsidyAmount / 250);
+            GameManager.getInstance().DangerLevel += (subsidyAmount / 150);
         }
     }
     //뇌물 전달 시 위험도가 크게 감소한다.
