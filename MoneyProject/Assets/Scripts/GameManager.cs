@@ -56,11 +56,6 @@ public class GameManager : MonoBehaviour, IObserverSubject
 
     void Start()
     {
-        resource = new Resource[3];
-        resource[0] = new Resource(RTYPE.GRAIN);
-        resource[1] = new Resource(RTYPE.SEAFOOD);
-        resource[2] = new Resource(RTYPE.FABRIC);
-
         workers = GameObject.Find("WorkerListBtn").GetComponent<WorkerList>().getWorkers();
 
         calendar = new Calendar();
@@ -164,12 +159,36 @@ public class GameManager : MonoBehaviour, IObserverSubject
         //fabricText.text = money.ToString();
         //seafoodText.text = money.ToString();
         //grainText.text = money.ToString();
+        Worker selectWorker = GameObject.Find("WorkerListBtn").GetComponent<WorkerList>().getSelectWorker();
+        if(selectWorker != null)
+        {
+            resource = selectWorker.GetResources;
 
-        resourceStatus[0].text = money.ToString(); // 돈
-        resourceStatus[1].text = resource[0].ToString(); // 농산물
-        resourceStatus[2].text = resource[1].ToString(); // 해산물
-        resourceStatus[3].text = resource[2].ToString(); // 면직물
-
+            resourceStatus[0].text = money.ToString(); // 돈
+            
+            foreach(Resource hasWorker in resource)
+            {
+                switch(hasWorker.rType)
+                {
+                    case RTYPE.FABRIC:
+                        resourceStatus[3].text = hasWorker.count.ToString();
+                        break;
+                    case RTYPE.GRAIN:
+                            resourceStatus[1].text = hasWorker.count.ToString();
+                        break;
+                    case RTYPE.SEAFOOD:
+                        resourceStatus[2].text = hasWorker.count.ToString();
+                        break;
+                }
+            }
+        }
+        else
+        {
+            resourceStatus[0].text = money.ToString(); // 돈
+            resourceStatus[1].text = resource[0].ToString(); // 농산물
+            resourceStatus[2].text = resource[1].ToString(); // 해산물
+            resourceStatus[3].text = resource[2].ToString(); // 면직물
+        }
         statusSlider[0].value = enlightenmentLevel;
         statusSlider[1].value = dangerLevel;
         statusSlider[2].value = trustLevel;

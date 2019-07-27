@@ -124,6 +124,6 @@ public class WorkerList : MonoBehaviour
                 uiWorkers[index].GetComponent < UnityEngine.UI.Image>().sprite = workers[index].getWagonImage();
         }
     }
-
+    public Worker getSelectWorker() { return selectWorker; }
     public List<Worker> getWorkers() { return workers; }
 }
