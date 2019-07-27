@@ -18627,6 +18627,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: eb1b8490d0f57f340a828dfaf092d622, type: 3}
   - {fileID: 21300000, guid: 3efdecf0240f77847abd23c470d609d5, type: 3}
   image: {fileID: 1798816400}
+  endText: {fileID: 0}
 --- !u!4 &1112281691
 Transform:
   m_ObjectHideFlags: 0
@@ -37262,6 +37263,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1872194021}
+    - target: {fileID: 317759207950596892, guid: 44fe52734b2eb034c935a30d173e3942,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 317759206750286966, guid: 44fe52734b2eb034c935a30d173e3942,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 317759206496933155, guid: 44fe52734b2eb034c935a30d173e3942,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6022589218236568671, guid: 44fe52734b2eb034c935a30d173e3942,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
