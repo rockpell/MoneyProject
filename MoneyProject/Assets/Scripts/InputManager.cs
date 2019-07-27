@@ -183,6 +183,8 @@ public class InputManager : MonoBehaviour
             selectMenu.SetActive(true);
         }
 
+        SoundManager.getInstance().clickScreenSound();
+
         return select;
     }
     private void UpdatePath()
