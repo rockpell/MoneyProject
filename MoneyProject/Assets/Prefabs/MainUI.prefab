@@ -977,7 +977,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4880894020674566035}
   m_Direction: 0
   m_MinValue: 1
-  m_MaxValue: 1000
+  m_MaxValue: 5000
   m_WholeNumbers: 1
   m_Value: 1
   m_OnValueChanged:
@@ -6296,7 +6296,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 80
+    m_MaxSize: 180
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -11513,7 +11513,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4367796336240625517}
   m_Direction: 0
   m_MinValue: 1
-  m_MaxValue: 1000
+  m_MaxValue: 5000
   m_WholeNumbers: 1
   m_Value: 1
   m_OnValueChanged:
