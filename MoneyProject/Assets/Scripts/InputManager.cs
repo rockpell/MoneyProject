@@ -261,6 +261,7 @@ public class InputManager : MonoBehaviour
                 }
             }
         }
+        buyChoiceMenu.transform.GetChild(1).GetComponent<Slider>().value = 1;
     }
 
     public void sellResource()
@@ -301,6 +302,8 @@ public class InputManager : MonoBehaviour
                 showMessage(_workerResource.rType + "물품을 판매하였습니다." + _amount);
             }
         }
+
+        sellChoiceMenu.transform.GetChild(2).GetComponent<Slider>().value = 1;
     }
     
     public void showBuyChoiceMenu() // 물품 구매 or 물품 출고 버튼 눌렀을때
@@ -429,5 +432,10 @@ public class InputManager : MonoBehaviour
     public void disappearBribeChoiceMenu()
     {
         birbeChoiceMenu.SetActive(false);
+    }
+
+    public GameObject getBuyChoiceMenu()
+    {
+        return buyChoiceMenu;
     }
 }

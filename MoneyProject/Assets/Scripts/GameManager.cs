@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour, IObserverSubject
 
     private List<Worker> workers;
 
+    Slider buyChoiceSlider;
+
     private static GameManager instance;
 
     public static GameManager getInstance()
@@ -62,6 +64,8 @@ public class GameManager : MonoBehaviour, IObserverSubject
 
         priceChangeLeftTurn = priceChangeTurnCount;
         taxAndSalaryDayLeftTurn = taxAndSalaryDayCount;
+
+        buyChoiceSlider = InputManager.getInstance().getBuyChoiceMenu().transform.GetChild(1).GetComponent<Slider>();
     }
 
     List<Observer> observerList = new List<Observer>();
@@ -196,6 +200,19 @@ public class GameManager : MonoBehaviour, IObserverSubject
         priceCountText.text = priceChangeLeftTurn.ToString() + "턴 후 시세 변동";
 
         calendarText.text = calendar.year.ToString() + "." + calendar.month.ToString() + "." + calendar.day.ToString();
+
+        if(trustLevel < 0)
+        {
+            buyChoiceSlider.maxValue = 1;
+        }
+        else if(trustLevel < 10)
+        {
+            buyChoiceSlider.maxValue = 10;
+        }
+        else
+        {
+            buyChoiceSlider.maxValue = trustLevel;
+        }
     }
 
     public int EnlightenmentLevel
