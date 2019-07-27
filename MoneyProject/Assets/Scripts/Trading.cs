@@ -73,12 +73,14 @@ public class Trading
             GameManager.getInstance().EnlightenmentLevel += subsidyAmount/200;
             GameManager.getInstance().DangerLevel += (subsidyAmount / 150);
         }
+        GameManager.getInstance().Disbursment += subsidyAmount;
     }
     //뇌물 전달 시 위험도가 크게 감소한다.
     public void GiveBribe(int bribeAmount)
     {
         GameManager.getInstance().Money -= bribeAmount;
-        GameManager.getInstance().DangerLevel -= (bribeAmount / 50);
+        GameManager.getInstance().DangerLevel -= (bribeAmount / 100);
+        GameManager.getInstance().Disbursment += bribeAmount;
     }
 
     public void storeResource(Resource workerResource, Resource stationResource, int amount)
