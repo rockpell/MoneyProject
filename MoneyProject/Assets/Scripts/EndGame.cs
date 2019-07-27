@@ -7,6 +7,7 @@ public class EndGame : MonoBehaviour
     //파산, 의심, 계몽 3가지 엔딩
     [SerializeField] private Sprite[] endingScene;
     [SerializeField] private UnityEngine.UI.Image image;
+    [SerializeField] private GameObject endText;
     private static EndGame instance;
 
     public static EndGame getInstance()
@@ -39,6 +40,7 @@ public class EndGame : MonoBehaviour
                 break; 
             case ENDING.ENLIGHTMENT:
                 image.sprite = endingScene[2];
+                endText.SetActive(true);
                 break; 
         }
         image.color = new Color(255, 255, 255, 255);
