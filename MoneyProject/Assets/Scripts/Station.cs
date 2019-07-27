@@ -80,7 +80,14 @@ public class Station : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(workers.Count == 0)
+        {
+            GetComponent<SpriteRenderer>().sprite = GameManager.getInstance().getIdleStationImage();
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().sprite = GameManager.getInstance().getWorkerStationImage();
+        }
     }
 
     public void updatePosition()

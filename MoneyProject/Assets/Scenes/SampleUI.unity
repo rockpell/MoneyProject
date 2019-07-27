@@ -32770,6 +32770,8 @@ MonoBehaviour:
   priceCountText: {fileID: 2131811680}
   calendarText: {fileID: 883532441}
   resultPanel: {fileID: 1208070508}
+  idleStaionImage: {fileID: 21300000, guid: be5cbb5a598bab7448354ca335882b97, type: 3}
+  workerStaionImage: {fileID: 21300000, guid: b64a5f883370ba4408957ca549ecb40a, type: 3}
   priceChangeTurnCount: 3
   taxAndSalaryDayCount: 4
   salaryAmount: 500

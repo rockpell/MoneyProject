@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour, IObserverSubject
 
     [SerializeField] GameObject resultPanel;
 
+    [SerializeField] Sprite idleStaionImage;
+    [SerializeField] Sprite workerStaionImage;
+
     private bool isTouchable = true;
 
     private int enlightenmentLevel;
@@ -261,5 +264,15 @@ public class GameManager : MonoBehaviour, IObserverSubject
     {
         get { return disbursment; }
         set { disbursment = value; }
+    }
+
+    public Sprite getIdleStationImage()
+    {
+        return idleStaionImage;
+    }
+
+    public Sprite getWorkerStationImage()
+    {
+        return workerStaionImage;
     }
 }
