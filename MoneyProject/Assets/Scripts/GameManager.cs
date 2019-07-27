@@ -185,9 +185,9 @@ public class GameManager : MonoBehaviour, IObserverSubject
         else
         {
             resourceStatus[0].text = money.ToString(); // 돈
-            resourceStatus[1].text = resource[0].ToString(); // 농산물
-            resourceStatus[2].text = resource[1].ToString(); // 해산물
-            resourceStatus[3].text = resource[2].ToString(); // 면직물
+            resourceStatus[1].text = "0"; // 농산물
+            resourceStatus[2].text = "0"; // 해산물
+            resourceStatus[3].text = "0"; // 면직물
         }
         statusSlider[0].value = enlightenmentLevel;
         statusSlider[1].value = dangerLevel;
