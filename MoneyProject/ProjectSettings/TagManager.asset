@@ -7,6 +7,7 @@ TagManager:
   - Station
   - Worker
   - UIWorker
+  - Map
   layers:
   - Default
   - TransparentFX

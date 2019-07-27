@@ -1280,7 +1280,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 60
   m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
@@ -3031,7 +3031,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 50
   m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
@@ -12143,6 +12143,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1084513229}
     m_Modifications:
+    - target: {fileID: -4415604839199870260, guid: 2ac28a96be9e5ec4993102b8f389d4d5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 68551026}
+    - target: {fileID: -4415604839199870260, guid: 2ac28a96be9e5ec4993102b8f389d4d5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: selectUIWorker
+      objectReference: {fileID: 0}
+    - target: {fileID: -4415604839199870260, guid: 2ac28a96be9e5ec4993102b8f389d4d5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1476086693429555836}
+    - target: {fileID: -4415604839199870260, guid: 2ac28a96be9e5ec4993102b8f389d4d5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2049794958853522913, guid: 2ac28a96be9e5ec4993102b8f389d4d5,
         type: 3}
       propertyPath: m_Name
@@ -12252,26 +12272,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -4415604839199870260, guid: 2ac28a96be9e5ec4993102b8f389d4d5,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 68551026}
-    - target: {fileID: -4415604839199870260, guid: 2ac28a96be9e5ec4993102b8f389d4d5,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: selectUIWorker
-      objectReference: {fileID: 0}
-    - target: {fileID: -4415604839199870260, guid: 2ac28a96be9e5ec4993102b8f389d4d5,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 1476086693429555836}
-    - target: {fileID: -4415604839199870260, guid: 2ac28a96be9e5ec4993102b8f389d4d5,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ac28a96be9e5ec4993102b8f389d4d5, type: 3}

@@ -135,9 +135,9 @@ public class InputManager : MonoBehaviour
                 {
                     if (nowWorker != null)
                     {
+                        UpdatePath();
                         if (nowPath.Count != 0)
                         {
-                            UpdatePath();
                             savePath();
                             initNowPath();
                         }
@@ -151,9 +151,9 @@ public class InputManager : MonoBehaviour
             {
                 if (nowWorker != null)
                 {
+                    UpdatePath();
                     if (nowPath.Count != 0)
                     {
-                        UpdatePath();
                         savePath();
                         initNowPath();
                     }
@@ -166,6 +166,13 @@ public class InputManager : MonoBehaviour
 
                 initChangeButtonText();
                 isNowBusan = false;
+            }
+        }
+        else
+        {
+            if(nowWorker != null)
+            {
+                UpdatePath();
             }
         }
 
@@ -195,10 +202,14 @@ public class InputManager : MonoBehaviour
     }
     private void UpdatePath()
     {
+        Debug.Log("Update Path");
         if (nowPath.Count == 0)
         {
             foreach (Station neighbor in nowWorker.getNowStation().getNeighbor())
+            {
+                Debug.Log("First TurnOff");
                 nowWorker.getNowStation().GetComponent<HighlightPath>().TurnOffPath(nowWorker.getNowStation().name, neighbor.name);
+            }
         }
         else
         {
