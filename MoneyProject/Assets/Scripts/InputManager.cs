@@ -65,6 +65,12 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Game Exit");
+            Application.Quit();
+        }
+
         if(Input.GetMouseButtonDown(0))
         {
             if(GameManager.getInstance().IsTouchable)
