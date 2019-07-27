@@ -248,6 +248,13 @@ public class InputManager : MonoBehaviour
     public void SetMoveMode()
     {
         isMoveMode = true;
+        if(nowWorker != null)
+        {
+            foreach(Station neighbor in nowWorker.getNowStation().getNeighbor())
+            {
+                nowWorker.getNowStation().GetComponent<HighlightPath>().TurnOnPath(nowWorker.getNowStation().name, neighbor.name);
+            }
+        }
         selectMenu.SetActive(false);
     }
 
